@@ -16,8 +16,10 @@ template/
 maps/
   gao/                DC · GAO — the flagship, hand-drawn schematic SVG (one-off)
   gao-leaflet/        DC · GAO on a real street map — the Leaflet template in action
+  alexandria/         VA · 20-minute walk from home (routed walk times, no ring)
 scripts/
   geocode.py          addresses → lat/lng via OSM Nominatim
+  walktimes.mjs       real routed walking minutes from the anchor (OSRM foot)
   shoot.py            headless-Firefox screenshot of a served map (local QA)
 BUILD.md              how to build / update / publish a map
 ```
