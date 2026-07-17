@@ -49,6 +49,24 @@ optional `radiusMin` ring, optional `appendix` HTML) and one `spots` entry per v
 with its geocoded `lat`/`lng`. `walk` is optional — omit it and it's estimated from
 straight-line distance to the anchor; keep hand-checked walk times when you have them.
 
+**Get real walk times (recommended for "within N minutes" maps).** Straight-line
+distance lies where rail lines, highways, or rivers force a detour. Once the spots
+have lat/lng, pull actual routed walking minutes and set each `walk` from them:
+
+```bash
+node scripts/walktimes.mjs maps/<city>/data.js
+```
+
+It queries OSRM's foot router (the one openstreetmap.org uses) and prints each spot's
+routed minutes, sorted nearest-first, flagging what's over the cutoff. Use those
+numbers as the `walk` values and to decide what to drop.
+
+**About the `radiusMin` ring:** it draws a *circle*, which implies equal walkability
+in every direction. Where the routed times are lopsided (e.g. one direction is slowed
+by a rail crossing), a circle over-promises — set `radiusMin: null` to hide it and let
+the per-spot walk labels carry the truth. Use the ring only where the area is roughly
+uniform (like the GAO grid).
+
 ### 4. Preview locally
 ```bash
 python3 -m http.server 8791 --bind 0.0.0.0    # from the repo root
