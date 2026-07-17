@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Hour Map</title>
+<!-- paths assume this map lives at maps/<city>/ ; adjust ../../ if you nest deeper -->
+<link rel="stylesheet" href="../../template/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="../../template/styles.css">
+</head>
+<body>
+<div id="scroller">
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">
+      <span class="docno" id="docno"></span>
+      <span id="eyebrow-extra"></span>
+    </div>
+    <h1 id="mast-title"></h1>
+    <p class="dek" id="mast-dek"></p>
+  </header>
+
+  <div class="cols">
+    <div class="map-col">
+      <div class="map-card">
+        <div id="map"></div>
+        <div class="map-foot">
+          <div class="key">
+            <i><span class="dot"></span> happy hour</i>
+            <i><span class="sq"></span> <span id="key-label">origin</span></i>
+          </div>
+          <span id="map-foot-note"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-col">
+      <div class="list-head">
+        <h2>The Findings <span style="color:var(--muted);font-size:15px;font-weight:400">(nearest first)</span></h2>
+        <span class="now-note" id="nowNote" hidden>● pouring right now</span>
+      </div>
+      <ol class="spots" id="spots"></ol>
+    </div>
+  </div>
+
+  <section class="notes" id="appendix"></section>
+</div>
+</div>
+
+<script src="../../template/vendor/leaflet/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="../../template/app.js"></script>
+</body>
+</html>
