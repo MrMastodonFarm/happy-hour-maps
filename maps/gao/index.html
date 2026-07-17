@@ -1,0 +1,564 @@
+<title>Happy Hour Within 10 Minutes of GAO</title>
+<style>
+  :root{
+    --paper:#fbfaf6;
+    --card:#ffffff;
+    --ink:#1d2534;
+    --muted:#5b6474;
+    --line:#dcd9cf;
+    --navy:#24406b;
+    --navy-soft:#e8ecf3;
+    --amber:#a8700f;
+    --amber-deep:#8a5c0c;
+    --amber-soft:#f5ead2;
+    --good:#2e6b45;
+    --good-soft:#e2efe6;
+    --warn:#8a5a17;
+    --warn-soft:#f3e9d4;
+    --map-bg:#f2efe6;
+    --map-block:#e7e3d6;
+    --map-park:#dde6d8;
+    --map-street:#ffffff;
+    --map-street-edge:#cfcaba;
+    --map-label:#8b8674;
+    --pin-text:#ffffff;
+    --shadow:0 1px 3px rgba(29,37,52,.08),0 4px 14px rgba(29,37,52,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#151a24;
+      --card:#1d2431;
+      --ink:#e9e7de;
+      --muted:#9aa3b2;
+      --line:#323a49;
+      --navy:#8aa5cf;
+      --navy-soft:#232f44;
+      --amber:#d9a13f;
+      --amber-deep:#e2b567;
+      --amber-soft:#33301f;
+      --good:#7dbd94;
+      --good-soft:#20301f;
+      --warn:#d8b26a;
+      --warn-soft:#33301f;
+      --map-bg:#1a212e;
+      --map-block:#232b3a;
+      --map-park:#223026;
+      --map-street:#2e3748;
+      --map-street-edge:#3a445a;
+      --map-label:#7c8798;
+      --pin-text:#151a24;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#fbfaf6; --card:#ffffff; --ink:#1d2534; --muted:#5b6474; --line:#dcd9cf;
+    --navy:#24406b; --navy-soft:#e8ecf3; --amber:#a8700f; --amber-deep:#8a5c0c; --amber-soft:#f5ead2;
+    --good:#2e6b45; --good-soft:#e2efe6; --warn:#8a5a17; --warn-soft:#f3e9d4;
+    --map-bg:#f2efe6; --map-block:#e7e3d6; --map-park:#dde6d8; --map-street:#ffffff;
+    --map-street-edge:#cfcaba; --map-label:#8b8674; --pin-text:#ffffff;
+    --shadow:0 1px 3px rgba(29,37,52,.08),0 4px 14px rgba(29,37,52,.06);
+  }
+  :root[data-theme="dark"]{
+    --paper:#151a24; --card:#1d2431; --ink:#e9e7de; --muted:#9aa3b2; --line:#323a49;
+    --navy:#8aa5cf; --navy-soft:#232f44; --amber:#d9a13f; --amber-deep:#e2b567; --amber-soft:#33301f;
+    --good:#7dbd94; --good-soft:#20301f; --warn:#d8b26a; --warn-soft:#33301f;
+    --map-bg:#1a212e; --map-block:#232b3a; --map-park:#223026; --map-street:#2e3748;
+    --map-street-edge:#3a445a; --map-label:#7c8798; --pin-text:#151a24;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+
+  html{background:var(--paper);height:100%;overflow:hidden;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    height:100%;overflow:hidden;
+  }
+  /* fixed-position scroller: keeps content out of the document's measured
+     scrollHeight so the host iframe stays viewport-sized and scrolling
+     happens entirely inside this page */
+  #scroller{
+    position:fixed;inset:0;overflow-y:auto;
+    -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
+    background:var(--paper);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 64px;}
+
+  /* ---------- masthead ---------- */
+  header.mast{border-bottom:3px double var(--line);padding-bottom:22px;margin-bottom:26px;}
+  .eyebrow{
+    display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:10px;
+  }
+  .eyebrow .docno{color:var(--amber);font-weight:700;}
+  h1{
+    font-family:Georgia,"Times New Roman",serif;font-weight:700;
+    font-size:clamp(28px,4.5vw,44px);line-height:1.12;margin:0 0 12px;text-wrap:balance;
+  }
+  h1 em{font-style:normal;color:var(--amber);}
+  .dek{max-width:62ch;color:var(--muted);margin:0;}
+  .dek strong{color:var(--ink);}
+
+  /* ---------- layout ---------- */
+  .cols{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media(min-width:980px){
+    .cols{grid-template-columns:minmax(0,54%) minmax(0,46%);align-items:start;}
+    .map-col{position:sticky;top:16px;}
+  }
+
+  /* ---------- map ---------- */
+  .map-card{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden;}
+  .map-card svg{display:block;width:100%;height:auto;}
+  .map-foot{
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:10px 14px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted);
+  }
+  .map-foot .key{display:flex;gap:14px;flex-wrap:wrap;}
+  .key i{font-style:normal;display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--amber);display:inline-block;}
+  .sq{width:11px;height:11px;background:var(--navy);display:inline-block;border-radius:2px;}
+  .msq{width:11px;height:11px;background:var(--good);display:inline-block;border-radius:50%;}
+
+  /* svg tokenized fills */
+  .sv-bg{fill:var(--map-bg);}
+  .sv-block{fill:var(--map-block);}
+  .sv-park{fill:var(--map-park);}
+  .sv-street{stroke:var(--map-street);}
+  .sv-street-edge{stroke:var(--map-street-edge);}
+  .sv-label{fill:var(--map-label);font:600 15px -apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.08em;}
+  .sv-label.av{font-style:italic;letter-spacing:.05em;}
+  .sv-circle{stroke:var(--amber);fill:none;stroke-dasharray:7 8;opacity:.65;}
+  .sv-circle-label{fill:var(--amber);font:700 15px -apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.1em;}
+  .sv-gao{fill:var(--navy);}
+  .sv-gao-label{fill:var(--navy);font:800 17px -apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.06em;}
+  .sv-metro{fill:var(--good);}
+  .sv-metro text{fill:var(--paper);font:800 12px Georgia,serif;}
+  .pin circle{fill:var(--amber);stroke:var(--paper);stroke-width:2.5;cursor:pointer;transition:transform .12s ease;}
+  .pin text{fill:var(--pin-text);font:800 13px -apple-system,"Segoe UI",Roboto,sans-serif;pointer-events:none;}
+  .pin.active circle{fill:var(--navy);r:16;}
+  .pin.now circle{stroke:var(--good);stroke-width:3;}
+
+  /* ---------- list ---------- */
+  .list-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:2px 0 14px;}
+  .list-head h2{font-family:Georgia,serif;font-size:22px;margin:0;}
+  .now-note{font-size:12.5px;color:var(--good);font-weight:600;}
+  ol.spots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .spot{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;box-shadow:var(--shadow);scroll-margin-top:14px;
+    transition:border-color .15s ease;
+  }
+  .spot.active{border-color:var(--amber);outline:2px solid var(--amber);outline-offset:-1px;}
+  .spot-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .num{
+    flex:none;width:26px;height:26px;border-radius:50%;background:var(--amber);color:var(--pin-text);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:13.5px;align-self:center;
+  }
+  .spot h3{margin:0;font-size:17.5px;font-family:Georgia,serif;cursor:pointer;}
+  .walk{font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:99px;}
+  .badge.v{background:var(--good-soft);color:var(--good);}
+  .badge.u{background:var(--warn-soft);color:var(--warn);}
+  .badge.now{background:var(--good);color:var(--paper);}
+  .when{margin:8px 0 2px;font-size:14px;font-weight:700;color:var(--navy);}
+  .deals{margin:4px 0 0;font-size:14.5px;}
+  .vibe{margin:6px 0 0;font-size:13px;color:var(--muted);font-style:italic;}
+  .meta{margin:8px 0 0;font-size:12.5px;color:var(--muted);}
+  .meta a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--navy);}
+  .caveat{margin:6px 0 0;font-size:13px;color:var(--warn);}
+
+  /* ---------- footnotes ---------- */
+  section.notes{margin-top:40px;border-top:3px double var(--line);padding-top:22px;}
+  section.notes h2{font-family:Georgia,serif;font-size:20px;margin:0 0 10px;}
+  section.notes h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:22px 0 8px;}
+  section.notes p, section.notes li{font-size:14px;color:var(--muted);max-width:75ch;}
+  section.notes strong{color:var(--ink);}
+  .closed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px 20px;padding:0;margin:0;list-style:none;}
+  .closed-grid li{border-left:3px solid var(--line);padding-left:10px;}
+  .closed-grid s{color:var(--ink);font-weight:600;text-decoration-color:var(--amber);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important;}
+    html{scroll-behavior:auto;}
+  }
+  .pin:focus-visible circle, .spot h3:focus-visible{outline:2px solid var(--navy);outline-offset:2px;}
+</style>
+
+<div id="scroller">
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">
+    <span class="docno">GAO-26-HH01</span>
+    <span>Report to the Thirsty</span>
+    <span>Field-verified July 17, 2026</span>
+  </div>
+  <h1>Happy Hour Accountability Review: <em>441 G St NW</em> and Surrounding Blocks</h1>
+  <p class="dek">All <strong>20 establishments</strong> below sit within about a <strong>10-minute walk</strong> of the GAO
+  building, spanning Judiciary Square, Capitol Crossing, Gallery Place, and Penn Quarter.
+  Every entry was checked against a live source this week; the handful we couldn't fully confirm are flagged
+  <strong>“check ahead.”</strong> Sorted nearest-first — pin numbers match the list.</p>
+</header>
+
+<div class="cols">
+  <div class="map-col">
+    <div class="map-card">
+      <svg viewBox="0 0 1000 1004" role="img" aria-label="Street map of the blocks around the GAO building with numbered happy hour locations">
+        <rect class="sv-bg" x="0" y="0" width="1000" height="1004"/>
+
+        <!-- walk radius -->
+        <circle class="sv-circle" cx="657" cy="473" r="575" stroke-width="3"/>
+
+        <!-- landmark blocks -->
+        <rect class="sv-block" x="562" y="360" width="112" height="108" rx="4"/>
+        <rect class="sv-block" x="326" y="478" width="112" height="108" rx="4"/>
+        <rect class="sv-park"  x="562" y="596" width="112" height="180" rx="4"/>
+        <rect class="sv-block" x="812" y="240" width="150" height="150" rx="4"/>
+
+        <!-- streets: E-W -->
+        <g class="sv-street-edge" stroke-width="12" fill="none" opacity=".55">
+          <line x1="0" y1="82"  x2="1000" y2="82"/>
+          <line x1="0" y1="236" x2="1000" y2="236"/>
+          <line x1="0" y1="355" x2="1000" y2="355"/>
+          <line x1="0" y1="473" x2="1000" y2="473"/>
+          <line x1="0" y1="591" x2="1000" y2="591"/>
+          <line x1="0" y1="691" x2="1000" y2="691"/>
+          <line x1="0" y1="782" x2="1000" y2="782"/>
+        </g>
+        <g class="sv-street" stroke-width="8" fill="none">
+          <line x1="0" y1="82"  x2="1000" y2="82"/>
+          <line x1="0" y1="236" x2="1000" y2="236"/>
+          <line x1="0" y1="355" x2="1000" y2="355"/>
+          <line x1="0" y1="473" x2="1000" y2="473"/>
+          <line x1="0" y1="591" x2="1000" y2="591"/>
+          <line x1="0" y1="691" x2="1000" y2="691"/>
+          <line x1="0" y1="782" x2="1000" y2="782"/>
+        </g>
+
+        <!-- streets: N-S -->
+        <g class="sv-street-edge" stroke-width="12" fill="none" opacity=".55">
+          <line x1="807" y1="0" x2="807" y2="1004"/>
+          <line x1="679" y1="0" x2="679" y2="1004"/>
+          <line x1="557" y1="0" x2="557" y2="1004"/>
+          <line x1="443" y1="0" x2="443" y2="1004"/>
+          <line x1="321" y1="0" x2="321" y2="1004"/>
+          <line x1="257" y1="355" x2="257" y2="1004"/>
+          <line x1="179" y1="0" x2="179" y2="1004"/>
+          <line x1="57"  y1="0" x2="57"  y2="1004"/>
+        </g>
+        <g class="sv-street" stroke-width="8" fill="none">
+          <line x1="807" y1="0" x2="807" y2="1004"/>
+          <line x1="679" y1="0" x2="679" y2="1004"/>
+          <line x1="557" y1="0" x2="557" y2="1004"/>
+          <line x1="443" y1="0" x2="443" y2="1004"/>
+          <line x1="321" y1="0" x2="321" y2="1004"/>
+          <line x1="257" y1="355" x2="257" y2="1004"/>
+          <line x1="179" y1="0" x2="179" y2="1004"/>
+          <line x1="57"  y1="0" x2="57"  y2="1004"/>
+        </g>
+
+        <!-- diagonals -->
+        <g class="sv-street-edge" stroke-width="12" fill="none" opacity=".55">
+          <line x1="1000" y1="454" x2="300" y2="82"/>
+          <line x1="800" y1="1010" x2="0" y2="770"/>
+          <line x1="580" y1="860" x2="290" y2="715"/>
+          <line x1="336" y1="82" x2="0" y2="290"/>
+        </g>
+        <g class="sv-street" stroke-width="8" fill="none">
+          <line x1="1000" y1="454" x2="300" y2="82"/>
+          <line x1="800" y1="1010" x2="0" y2="770"/>
+          <line x1="580" y1="860" x2="290" y2="715"/>
+          <line x1="336" y1="82" x2="0" y2="290"/>
+        </g>
+
+        <!-- street labels -->
+        <g class="sv-label">
+          <text x="965" y="72">K St</text>
+          <text x="968" y="226">I St</text>
+          <text x="963" y="345">H St</text>
+          <text x="963" y="463">G St</text>
+          <text x="965" y="581">F St</text>
+          <text x="966" y="681">E St</text>
+          <text x="964" y="772">D St</text>
+          <text x="815" y="998">3rd</text>
+          <text x="687" y="998">4th</text>
+          <text x="565" y="998">5th</text>
+          <text x="451" y="998">6th</text>
+          <text x="329" y="998">7th</text>
+          <text x="187" y="998">9th</text>
+          <text x="65"  y="998">10th</text>
+          <text class="av" x="700" y="270" transform="rotate(-28 700 270)">Massachusetts Ave</text>
+          <text class="av" x="480" y="946" transform="rotate(-17 480 946)">Pennsylvania Ave</text>
+          <text class="av" x="382" y="792" transform="rotate(-27 382 792)">Indiana Ave</text>
+          <text x="345" y="333">Chinatown</text>
+          <text x="330" y="547" text-anchor="start">Capital One</text>
+          <text x="330" y="565" text-anchor="start">Arena</text>
+          <text x="568" y="650">Judiciary</text>
+          <text x="568" y="668">Square</text>
+          <text x="820" y="300">Capitol</text>
+          <text x="820" y="318">Crossing</text>
+        </g>
+        <text class="sv-circle-label" x="130" y="120">≈ 10-MIN WALK</text>
+
+        <!-- GAO -->
+        <g>
+          <rect class="sv-gao" x="562" y="360" width="112" height="108" rx="4" opacity=".18"/>
+          <path class="sv-gao" d="M618 384 l7.8 15.8 17.4 2.5 -12.6 12.3 3 17.3 -15.6 -8.2 -15.6 8.2 3 -17.3 -12.6 -12.3 17.4 -2.5 Z"/>
+          <text class="sv-gao-label" x="618" y="452" text-anchor="middle">GAO</text>
+        </g>
+
+        <!-- metro -->
+        <g class="sv-metro">
+          <g><circle cx="321" cy="473" r="12"/><text x="321" y="478" text-anchor="middle">M</text></g>
+          <g><circle cx="610" cy="591" r="12"/><text x="610" y="596" text-anchor="middle">M</text></g>
+          <g><circle cx="299" cy="855" r="12"/><text x="299" y="860" text-anchor="middle">M</text></g>
+        </g>
+
+        <g id="pins"></g>
+      </svg>
+      <div class="map-foot">
+        <div class="key">
+          <i><span class="dot"></span> happy hour</i>
+          <i><span class="sq"></span> GAO</i>
+          <i><span class="msq"></span> Metro</i>
+        </div>
+        <span>schematic — not to survey accuracy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-col">
+    <div class="list-head">
+      <h2>The Findings <span style="color:var(--muted);font-size:15px;font-weight:400">(nearest first)</span></h2>
+      <span class="now-note" id="nowNote" hidden>● pouring right now</span>
+    </div>
+    <ol class="spots" id="spots"></ol>
+  </div>
+</div>
+
+<section class="notes">
+  <h2>Appendix</h2>
+
+  <h3>Worth knowing</h3>
+  <p><strong>PubKey</strong> (410 7th St NW, the old Hill Country space) has no formal happy hour but runs standing deals:
+  21% off everything paid in Bitcoin, $9 Chicago dogs, cheap beer, Monday trivia and karaoke rooms.
+  <strong>Daikaya's izakaya</strong> (705 6th St, 2nd floor) cut back to Wed–Sat evenings only and its old
+  5–7 PM happy hour no longer appears anywhere current. <strong>Dirty Habit</strong>'s happy hour rotates
+  between its bar, lounge, and courtyard — ask the host where it's running that day.</p>
+
+  <h3>Closed — still haunting old happy hour guides</h3>
+  <ul class="closed-grid">
+    <li><s>Hill Country BBQ</s> — closed Mar 2025 (now PubKey)</li>
+    <li><s>District Chophouse</s> — closed Mar 2024</li>
+    <li><s>Fadó Irish Pub</s> — closed Mar 2020</li>
+    <li><s>Bar Deco</s> — closed Nov 2023</li>
+    <li><s>701 Restaurant</s> — closed</li>
+    <li><s>Fig &amp; Olive</s> — closed Apr 2025 (bankruptcy)</li>
+    <li><s>Capitol City Brewing</s> — closed Aug 2025</li>
+    <li><s>Cranes</s> — apparently closed Feb 2026</li>
+    <li><s>Rosa Mexicano</s> — closed (now Mi Vida)</li>
+  </ul>
+
+  <h3>Methodology</h3>
+  <p>Compiled July 17, 2026. “Verified” means the venue's own website, menu page, or menu PDF was opened and
+  confirmed current. “Check ahead” means the venue is confirmed open but happy hour details rest on an aggregator
+  listing or conflicting sources — call before counting on it. Walk times are estimates from 441 G St NW at a
+  normal pace. Most happy hours are <strong>bar/lounge area only</strong>; assume that unless noted.</p>
+</section>
+</div>
+</div>
+
+<script>
+const SPOTS = [
+  {n:"Free State", x:557, y:491, walk:2, addr:"501B G St NW",
+   when:"Mon–Fri 4–6 PM · Mondays: $10 martinis all night",
+   deals:"$6 select wine, beer, and rail drinks. Mid-Atlantic craft beer focus. No kitchen — carry-out food welcome.",
+   vibe:"Family-run basement bar + patio; the closest option to GAO, one block west.",
+   v:true, url:"https://www.freestatebar.com/", link:"freestatebar.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18},{d:[1],s:18,e:23}]},
+  {n:"L'Ardente", x:871, y:373, walk:4, addr:"200 Massachusetts Ave NW (Capitol Crossing)",
+   when:"Mon–Fri 4–6 PM · bar only",
+   deals:"Happy hour at the bar of the 40-layer-lasagna glam Italian; prices not published — expect upscale.",
+   vibe:"Dress-up scene; one of DC's toughest tables, but the bar HH is walk-in.",
+   v:true, url:"https://www.lardente.com/", link:"lardente.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18}]},
+  {n:"Hiya Izakaya — Love, Makoto", x:850, y:391, walk:4, addr:"200 Massachusetts Ave NW, Ste 150",
+   when:"Mon 4–10 PM (all night!) · Tue–Sun 4–6 PM · walk-in only",
+   deals:"Whisky highballs and robata skewers at the Japanese bar inside the Love, Makoto food hall.",
+   vibe:"Lively izakaya counter; Beloved BBQ and Dear Sushi share the hall.",
+   v:true, url:"https://www.lovemakoto.com/", link:"lovemakoto.com",
+   win:[{d:[1],s:16,e:22},{d:[0,2,3,4,5,6],s:16,e:18}]},
+  {n:"Denson Liquor Bar", x:457, y:573, walk:4, addr:"600 F St NW (basement; enter on 6th)",
+   when:"Tue–Sat from 4:30 open to ~6:30 PM · closed Sun–Mon",
+   deals:"Spring 2026 happy hour card: $15 craft cocktails, $10–12 bites (grilled cheese, deviled eggs, piquillo peppers).",
+   vibe:"Moody subterranean cocktail den — the quality-cocktail pick near GAO.",
+   note:"Closed for summer break Aug 24–31, 2026.",
+   v:true, url:"https://www.densondc.com/", link:"densondc.com",
+   win:[{d:[2,3,4,5,6],s:16.5,e:18.5}]},
+  {n:"Clyde's of Gallery Place", x:329, y:455, walk:6, addr:"707 7th St NW",
+   when:"Oysters daily 3–5 PM &amp; 10 PM–close · drink deals late-night only",
+   deals:"$15.99 half-dozen / $28.99 dozen oysters. Late night (Sun–Thu 10 PM+, Fri–Sat 11 PM+): $6 drafts, $9 wines, $3 off cocktails, starters &amp; burgers.",
+   vibe:"Classic big saloon, pre-game staple.",
+   note:"The afternoon window is oysters only — no afternoon drink discounts anymore.",
+   v:true, url:"https://www.clydes.com/location/clydes-gallery-place/", link:"clydes.com",
+   win:[{d:[0,1,2,3,4,5,6],s:15,e:17},{d:[0,1,2,3,4],s:22,e:24},{d:[5,6],s:23,e:24}]},
+  {n:"Mi Vida", x:321, y:573, walk:6, addr:"575 7th St NW",
+   when:"Daily 12–7 PM · bar only",
+   deals:"$5 beers, $7 wines, $8–9 cocktails, $39 margarita pitchers, discounted small plates.",
+   vibe:"Big stylish modern-Mexican; the longest happy hour window in the radius.",
+   v:true, url:"https://www.mividamexico.com/", link:"mividamexico.com",
+   win:[{d:[0,1,2,3,4,5,6],s:12,e:19}]},
+  {n:"Penn Quarter Sports Tavern", x:443, y:800, walk:7, addr:"639 Indiana Ave NW",
+   when:"Listed Mon–Fri 4–7 PM — conflicting reports",
+   deals:"$4–5 drafts (Miller Lite, Yuengling, Blue Moon), $5 rails/Tito's/Jack, $5 wine — if running.",
+   vibe:"No-frills neighborhood sports bar with a rooftop deck.",
+   note:"One June-2026 listing says the happy hour was dropped. Call 202-347-6666 before counting on it.",
+   v:false, url:"https://www.dmvhappyhours.com/happyhours/penn-quarter-sports-tavern", link:"dmvhappyhours.com",
+   win:[{d:[1,2,3,4,5],s:16,e:19}]},
+  {n:"Dirty Habit", x:243, y:582, walk:7, addr:"555 8th St NW (Hotel Monaco)",
+   when:"Mon–Fri 3–7 PM",
+   deals:"~$9 wines, $13 margaritas, ~$10 seasonal cocktails (frosé and friends).",
+   vibe:"Swanky hotel courtyard scene; location rotates — ask the host.",
+   v:true, url:"https://dirtyhabitdc.com/events", link:"dirtyhabitdc.com",
+   win:[{d:[1,2,3,4,5],s:15,e:19}]},
+  {n:"Zaytinya", x:207, y:418, walk:7, addr:"701 9th St NW",
+   when:"Mon–Fri 4–6 PM (per June 2026 listing)",
+   deals:"$7 beer, $8 all wines, $10–16 cocktails, $6 flatbreads at the bar.",
+   vibe:"Airy José Andrés Mediterranean mezze; polished after-work crowd.",
+   note:"Own site doesn't publish HH details — confirm on arrival.",
+   v:false, url:"https://dchappyhours.com/place/zaytinya", link:"dchappyhours.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18}]},
+  {n:"Jaleo", x:329, y:673, walk:8, addr:"480 7th St NW",
+   when:"Mon–Fri 3–6:30 PM · bar area · “Sangría Hour”",
+   deals:"$8 sangría, select wines, priced-down tapas ($8 patatas bravas, gambas al ajillo).",
+   vibe:"José Andrés' flagship Spanish tapas institution, festive at the bar.",
+   v:true, url:"https://www.jaleo.com/event/sangria-hour/", link:"jaleo.com",
+   win:[{d:[1,2,3,4,5],s:15,e:18.5}]},
+  {n:"Carmine's", x:314, y:764, walk:8, addr:"425 7th St NW",
+   when:"Sun–Fri 3–7 PM · bar only",
+   deals:"2-for-$6 meatball sliders, $9 apps, $10 cheese &amp; charcuterie, $6 Peroni/Miller Lite, $8 house wine, $10 Aperol fizz &amp; frozen cosmos.",
+   vibe:"Big boisterous family-style Italian bar; generous 4-hour window.",
+   v:true, url:"https://carminesnyc.com/menus/washington-dc-happy-hour", link:"carminesnyc.com",
+   win:[{d:[0,1,2,3,4,5],s:15,e:19}]},
+  {n:"Cuba Libre", x:193, y:327, walk:8, addr:"801 9th St NW",
+   when:"Mon–Fri 2–7:30 PM · bar &amp; bar tables",
+   deals:"$8 mojitos/caipirinhas/sangría, $6 beer, $10 craft cocktail or Churrasco burger, $7–8 empanadas, tostones, croquetas, wings.",
+   vibe:"Colorful Cuban rum bar; a 5½-hour window.",
+   v:true, url:"https://www.cubalibrerestaurant.com/assets/pdfs/en/cuba-libre-washington-happy-hour-menu.pdf", link:"cubalibrerestaurant.com (menu PDF)",
+   win:[{d:[1,2,3,4,5],s:14,e:19.5}]},
+  {n:"The Smith", x:179, y:573, walk:8, addr:"901 F St NW",
+   when:"Mon–Fri 3–6 PM · plus Fri–Sat from 10 PM · “Martini Hour”",
+   deals:"$12 martinis with hand-cut fries; $20 martini + three oysters.",
+   vibe:"Bustling brasserie in a landmark bank building.",
+   v:true, url:"https://thesmithrestaurant.com/location/penn-quarter/", link:"thesmithrestaurant.com",
+   win:[{d:[1,2,3,4,5],s:15,e:18},{d:[5,6],s:22,e:24}]},
+  {n:"The Capital Grille", x:486, y:918, walk:8, addr:"601 Pennsylvania Ave NW",
+   when:"Mon–Fri 3–6 PM · lounge · “Capital Hours”",
+   deals:"$12 cocktails, $9 wines, $18 sliced dry-aged NY strip, $12 truffle arancini.",
+   vibe:"Clubby power-steakhouse lounge — peak DC.",
+   note:"Times from a June 2026 listing; their site blocks robots. Confirm prices on arrival.",
+   v:false, url:"https://www.capitalgrille.com/", link:"capitalgrille.com",
+   win:[{d:[1,2,3,4,5],s:15,e:18}]},
+  {n:"Boqueria", x:179, y:409, walk:8, addr:"777 9th St NW",
+   when:"Mon–Sat 3–7 PM",
+   deals:"$8 mini martinis, $6 Spanish beer, sangría, $2–12 tapas ($2 pan con tomate, $6 croquetas).",
+   vibe:"Barcelona-style tapas bar; venue brags on this HH itself, 4-hour window.",
+   v:true, url:"https://boqueriarestaurant.com/location/dc/penn-quarter/", link:"boqueriarestaurant.com",
+   win:[{d:[1,2,3,4,5,6],s:15,e:19}]},
+  {n:"China Chilcano", x:349, y:743, walk:9, addr:"418 7th St NW",
+   when:"Mon–Fri 4–6 PM · bar &amp; patio · “Pisco Hour”",
+   deals:"Discounted pisco sours &amp; chilcanos, wines by the glass, dim sum bites (prices unpublished).",
+   vibe:"José Andrés' Peruvian-Chinese-Japanese mashup, quirky-cool.",
+   v:true, url:"https://www.chinachilcano.com/event/pisco-hour-is-back/", link:"chinachilcano.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18}]},
+  {n:"Oyamel", x:329, y:809, walk:9, addr:"401 7th St NW",
+   when:"Mon–Fri 4–6 PM · “Hora Feliz”",
+   deals:"Specially priced margaritas and antojitos (grasshopper tacos for the brave).",
+   vibe:"Festive upscale Mexican, killer margaritas.",
+   v:true, url:"https://www.oyamel.com/", link:"oyamel.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18}]},
+  {n:"City Tap Penn Quarter", x:179, y:227, walk:9, addr:"901 9th St NW",
+   when:"Mon–Fri 4–6 PM (some listings say from 3)",
+   deals:"$5 draft/can beers, $6 wines, $7 mixed drinks, $8 bites — ~40 taps.",
+   vibe:"Big craft-beer gastropub; easy group default.",
+   v:true, url:"https://www.citytap.com/menu/happy-hour-1/", link:"citytap.com",
+   win:[{d:[1,2,3,4,5],s:16,e:18}]},
+  {n:"Ella's Wood Fired Pizza", x:157, y:546, walk:10, addr:"610 9th St NW",
+   when:"Mon–Fri 3:30–5:30 PM · bar only",
+   deals:"$10–13 happy hour pizzas, $2 off all drafts, $8 sangría, $11 cocktails, $5 garlic fries.",
+   vibe:"Casual wood-fired pizza bar (relocated from F St — alive and well).",
+   v:true, url:"https://ellasdc.com/washington-dc-ella-s-wood-fired-pizza-happy-hour-menu", link:"ellasdc.com",
+   win:[{d:[1,2,3,4,5],s:15.5,e:17.5}]},
+  {n:"RPM Italian", x:336, y:100, walk:10, addr:"650 K St NW",
+   when:"Daily 3–6 PM · “Aperitivo Hour”",
+   deals:"Select wines &amp; beers from $3, $8 signature cocktails, all cicchetti $8 (pizzettes, grilled oysters).",
+   vibe:"Glossy see-and-be-seen Italian; best-value upscale HH around.",
+   v:true, url:"https://www.rpmrestaurants.com/blogs/rpm-happy-hour/", link:"rpmrestaurants.com",
+   win:[{d:[0,1,2,3,4,5,6],s:15,e:18}]}
+];
+
+// current time in DC
+function dcNow(){
+  try{
+    const p = new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    const g = t=>p.find(x=>x.type===t).value;
+    const days={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {d:days[g('weekday')], h:parseInt(g('hour'),10)%24 + parseInt(g('minute'),10)/60};
+  }catch(e){ return null; }
+}
+const now = dcNow();
+const isOn = s => !!(now && s.win && s.win.some(w=>w.d.includes(now.d) && now.h>=w.s && now.h<w.e));
+
+const listEl = document.getElementById('spots');
+const pinsEl = document.getElementById('pins');
+const svgNS = 'http://www.w3.org/2000/svg';
+let anyNow = false;
+
+SPOTS.forEach((s,i)=>{
+  const id = i+1, on = isOn(s) && s.v;
+  if(on) anyNow = true;
+
+  const li = document.createElement('li');
+  li.className='spot'; li.id='spot-'+id;
+  li.innerHTML =
+    '<div class="spot-top"><span class="num">'+id+'</span>'+
+    '<h3 tabindex="0">'+s.n+'</h3><span class="walk">~'+s.walk+' min walk</span>'+
+    '<span class="badges">'+(on?'<span class="badge now">now</span>':'')+
+    (s.v?'<span class="badge v">verified</span>':'<span class="badge u">check ahead</span>')+'</span></div>'+
+    '<p class="when">'+s.when+'</p>'+
+    '<p class="deals">'+s.deals+'</p>'+
+    '<p class="vibe">'+s.vibe+'</p>'+
+    (s.note?'<p class="caveat">⚠ '+s.note+'</p>':'')+
+    '<p class="meta">'+s.addr+' · <a href="'+s.url+'" target="_blank" rel="noopener">'+s.link+'</a></p>';
+  listEl.appendChild(li);
+
+  const g = document.createElementNS(svgNS,'g');
+  g.setAttribute('class','pin'+(on?' now':'')); g.setAttribute('id','pin-'+id);
+  g.setAttribute('tabindex','0'); g.setAttribute('role','button');
+  g.setAttribute('aria-label',s.n+', about '+s.walk+' minutes walk');
+  const c = document.createElementNS(svgNS,'circle');
+  c.setAttribute('cx',s.x); c.setAttribute('cy',s.y); c.setAttribute('r',14);
+  const t = document.createElementNS(svgNS,'text');
+  t.setAttribute('x',s.x); t.setAttribute('y',s.y+4.5); t.setAttribute('text-anchor','middle');
+  t.textContent = id;
+  g.appendChild(c); g.appendChild(t);
+  pinsEl.appendChild(g);
+
+  const activate = ()=>{
+    document.querySelectorAll('.active').forEach(el=>el.classList.remove('active'));
+    li.classList.add('active'); g.classList.add('active');
+    li.scrollIntoView({block:'nearest'});
+  };
+  g.addEventListener('click',activate);
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+  const hl = ()=>{ document.querySelectorAll('.active').forEach(el=>el.classList.remove('active'));
+    li.classList.add('active'); g.classList.add('active'); };
+  li.querySelector('h3').addEventListener('click',hl);
+  li.addEventListener('mouseenter',()=>g.classList.add('active'));
+  li.addEventListener('mouseleave',()=>{ if(!li.classList.contains('active')) g.classList.remove('active'); });
+});
+
+if(anyNow) document.getElementById('nowNote').hidden = false;
+</script>
