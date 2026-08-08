@@ -1,47 +1,40 @@
 /* GAO happy hours — Leaflet edition.
    Same field-verified content as the hero (schematic) map at ../gao/,
    with real coordinates geocoded from each street address via OSM Nominatim.
-   Compiled / verified 2026-07-17. */
+   Compiled 2026-07-17; expanded 2026-07-27; last updated 2026-08-08. */
 window.DATA = {
   meta: {
     docno: "GAO-26-HH02",
-    eyebrow: ["Report to the Thirsty", "Field-verified July 17, 2026", "Map edition"],
+    eyebrow: ["Report to the Thirsty", "Field-verified July 17 · expanded July 27, 2026", "Map edition"],
     title: 'Happy Hour Accountability Review: <em>441 G St NW</em> and Surrounding Blocks',
-    dek: 'All <strong>20 establishments</strong> below sit within about a <strong>10-minute walk</strong> of the GAO ' +
-         'building, spanning Judiciary Square, Capitol Crossing, Gallery Place, and Penn Quarter. Every entry was ' +
-         'checked against a live source this week; the handful we couldn’t fully confirm are flagged ' +
-         '<strong>“check ahead.”</strong> Sorted nearest-first — pin numbers match the list.',
+    dek: 'All <strong>28 establishments</strong> below sit within about a <strong>10-minute walk</strong> of the GAO ' +
+         'building, spanning Judiciary Square, Capitol Crossing, Gallery Place, Penn Quarter, and Mt. Vernon Triangle. ' +
+         'Every entry was checked against a live source; the handful we couldn\u2019t fully confirm are flagged ' +
+         '<strong>\u201Ccheck ahead.\u201D</strong> Sorted nearest-first — pin numbers match the list.',
     tz: "America/New_York",
     zoom: 16,
     radiusMin: 10,
     keyLabel: "GAO",
     anchor: { name: "U.S. Government Accountability Office", label: "GAO", addr: "441 G St NW", lat: 38.8992298, lng: -77.0172546 },
     appendix:
-      '<h2>Appendix</h2>' +
-      '<h3>Worth knowing</h3>' +
-      '<p><strong>PubKey</strong> (410 7th St NW, the old Hill Country space) has no formal happy hour but runs standing deals: ' +
-      '21% off everything paid in Bitcoin, $9 Chicago dogs, cheap beer, Monday trivia and karaoke rooms. ' +
-      '<strong>Daikaya’s izakaya</strong> (705 6th St, 2nd floor) cut back to Wed–Sat evenings only and its old ' +
-      '5–7 PM happy hour no longer appears anywhere current. <strong>Dirty Habit</strong>’s happy hour rotates ' +
-      'between its bar, lounge, and courtyard — ask the host where it’s running that day.</p>' +
-      '<h3>Closed — still haunting old happy hour guides</h3>' +
-      '<ul class="closed-grid">' +
-      '<li><s>Hill Country BBQ</s> — closed Mar 2025 (now PubKey)</li>' +
-      '<li><s>District Chophouse</s> — closed Mar 2024</li>' +
-      '<li><s>Fadó Irish Pub</s> — closed Mar 2020</li>' +
-      '<li><s>Bar Deco</s> — closed Nov 2023</li>' +
-      '<li><s>701 Restaurant</s> — closed</li>' +
-      '<li><s>Fig &amp; Olive</s> — closed Apr 2025 (bankruptcy)</li>' +
-      '<li><s>Capitol City Brewing</s> — closed Aug 2025</li>' +
-      '<li><s>Cranes</s> — apparently closed Feb 2026</li>' +
-      '<li><s>Rosa Mexicano</s> — closed (now Mi Vida)</li>' +
-      '</ul>' +
-      '<h3>Methodology</h3>' +
-      '<p>Compiled July 17, 2026. “Verified” means the venue’s own website, menu page, or menu PDF was opened and ' +
-      'confirmed current. “Check ahead” means the venue is confirmed open but happy hour details rest on an aggregator ' +
-      'listing or conflicting sources — call before counting on it. Walk times are estimates from 441 G St NW at a ' +
-      'normal pace. Coordinates geocoded from street addresses via OpenStreetMap Nominatim; pins are accurate to the ' +
-      'address, not the exact door. Most happy hours are <strong>bar/lounge area only</strong>; assume that unless noted.</p>'
+      '<h2>Appendix</h2> <h3>Worth knowing</h3> <p><strong>PubKey</strong> (410 7th St NW, the old Hill Country ' +
+      'space) has no formal happy hour but runs standing deals: 21% off everything paid in Bitcoin, $9 Chicago ' +
+      'dogs, cheap beer, Monday trivia and karaoke rooms. <strong>Daikaya\'s izakaya</strong> (705 6th St, 2nd ' +
+      'floor) cut back to Wed–Sat evenings only and its old 5–7 PM happy hour no longer appears anywhere current. ' +
+      '<strong>Dirty Habit</strong>\'s happy hour rotates between its bar, lounge, and courtyard — ask the host ' +
+      'where it\'s running that day.</p> <h3>Closed — still haunting old happy hour guides</h3> <ul ' +
+      'class="closed-grid"> <li><s>Hill Country BBQ</s> — closed Mar 2025 (now PubKey)</li> <li><s>District ' +
+      'Chophouse</s> — closed Mar 2024</li> <li><s>Fadó Irish Pub</s> — closed Mar 2020</li> <li><s>Bar Deco</s> — ' +
+      'closed Nov 2023</li> <li><s>701 Restaurant</s> — closed</li> <li><s>Fig &amp; Olive</s> — closed Apr 2025 ' +
+      '(bankruptcy)</li> <li><s>Capitol City Brewing</s> — closed Aug 2025</li> <li><s>Cranes</s> — closed Feb ' +
+      '2026</li> <li><s>Arrels</s> — closed early 2026 (Arlo Hotel)</li> <li><s>Tonari</s> — closed May 2026</li> ' +
+      '<li><s>Rosa Mexicano</s> — closed (now Mi Vida)</li> </ul> <h3>Methodology</h3> <p>Compiled July 17, 2026; ' +
+      'expanded July 27, 2026 with 8 more spots and a fresh round of price/hours verification. “Verified” means the ' +
+      'venue\'s own website, menu page, or menu PDF was opened and confirmed current. “Check ahead” means the venue ' +
+      'is confirmed open but happy hour details rest on an aggregator listing or conflicting sources — call before ' +
+      'counting on it. Walk times are estimates from 441 G St NW at a normal pace. Coordinates geocoded from street ' +
+      'addresses via OpenStreetMap Nominatim; pins are accurate to the address, not the exact door. Most happy ' +
+      'hours are <strong>bar/lounge area only</strong>; assume that unless noted.</p>'
   },
   spots: [
     { n: "Free State", lat: 38.8984619, lng: -77.0191292, walk: 2, addr: "501B G St NW",
@@ -49,125 +42,178 @@ window.DATA = {
       deals: "$6 select wine, beer, and rail drinks. Mid-Atlantic craft beer focus. No kitchen — carry-out food welcome.",
       vibe: "Family-run basement bar + patio; the closest option to GAO, one block west.",
       v: true, url: "https://www.freestatebar.com/", link: "freestatebar.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }, { d: [1], s: 18, e: 23 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}, {d: [1], s: 18, e: 23}] },
     { n: "L'Ardente", lat: 38.8989595, lng: -77.0140433, walk: 4, addr: "200 Massachusetts Ave NW (Capitol Crossing)",
       when: "Mon–Fri 4–6 PM · bar only",
-      deals: "Happy hour at the bar of the 40-layer-lasagna glam Italian; prices not published — expect upscale.",
+      deals: "$8 select drinks and $12 select pizzas at the bar of the 40-layer-lasagna glam Italian.",
       vibe: "Dress-up scene; one of DC's toughest tables, but the bar HH is walk-in.",
       v: true, url: "https://www.lardente.com/", link: "lardente.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}] },
     { n: "Hiya Izakaya — Love, Makoto", lat: 38.8988400, lng: -77.0138800, walk: 4, addr: "200 Massachusetts Ave NW, Ste 150",
       when: "Mon 4–10 PM (all night!) · Tue–Sun 4–6 PM · walk-in only",
       deals: "Whisky highballs and robata skewers at the Japanese bar inside the Love, Makoto food hall.",
       vibe: "Lively izakaya counter; Beloved BBQ and Dear Sushi share the hall.",
       v: true, url: "https://www.lovemakoto.com/", link: "lovemakoto.com",
-      win: [{ d: [1], s: 16, e: 22 }, { d: [0,2,3,4,5,6], s: 16, e: 18 }] },
+      win: [{d: [1], s: 16, e: 22}, {d: [0, 2, 3, 4, 5, 6], s: 16, e: 18}] },
     { n: "Denson Liquor Bar", lat: 38.8971899, lng: -77.0201557, walk: 4, addr: "600 F St NW (basement; enter on 6th)",
       when: "Tue–Sat from 4:30 open to ~6:30 PM · closed Sun–Mon",
       deals: "Spring 2026 happy hour card: $15 craft cocktails, $10–12 bites (grilled cheese, deviled eggs, piquillo peppers).",
       vibe: "Moody subterranean cocktail den — the quality-cocktail pick near GAO.",
       note: "Closed for summer break Aug 24–31, 2026.",
       v: true, url: "https://www.densondc.com/", link: "densondc.com",
-      win: [{ d: [2,3,4,5,6], s: 16.5, e: 18.5 }] },
+      win: [{d: [2, 3, 4, 5, 6], s: 16.5, e: 18.5}] },
     { n: "Clyde's of Gallery Place", lat: 38.8989551, lng: -77.0216867, walk: 6, addr: "707 7th St NW",
       when: "Oysters daily 3–5 PM &amp; 10 PM–close · drink deals late-night only",
       deals: "$15.99 half-dozen / $28.99 dozen oysters. Late night (Sun–Thu 10 PM+, Fri–Sat 11 PM+): $6 drafts, $9 wines, $3 off cocktails, starters &amp; burgers.",
       vibe: "Classic big saloon, pre-game staple.",
       note: "The afternoon window is oysters only — no afternoon drink discounts anymore.",
       v: true, url: "https://www.clydes.com/location/clydes-gallery-place/", link: "clydes.com",
-      win: [{ d: [0,1,2,3,4,5,6], s: 15, e: 17 }, { d: [0,1,2,3,4], s: 22, e: 24 }, { d: [5,6], s: 23, e: 24 }] },
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 15, e: 17}, {d: [0, 1, 2, 3, 4], s: 22, e: 24}, {d: [5, 6], s: 23, e: 24}] },
     { n: "Mi Vida", lat: 38.8968331, lng: -77.0209683, walk: 6, addr: "575 7th St NW",
       when: "Daily 12–7 PM · bar only",
       deals: "$5 beers, $7 wines, $8–9 cocktails, $39 margarita pitchers, discounted small plates.",
       vibe: "Big stylish modern-Mexican; the longest happy hour window in the radius.",
       v: true, url: "https://www.mividamexico.com/", link: "mividamexico.com",
-      win: [{ d: [0,1,2,3,4,5,6], s: 12, e: 19 }] },
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 12, e: 19}] },
     { n: "Penn Quarter Sports Tavern", lat: 38.8942389, lng: -77.0215529, walk: 7, addr: "639 Indiana Ave NW",
-      when: "Listed Mon–Fri 4–7 PM — conflicting reports",
-      deals: "$4–5 drafts (Miller Lite, Yuengling, Blue Moon), $5 rails/Tito's/Jack, $5 wine — if running.",
+      when: "Mon–Fri 4–7 PM",
+      deals: "$4 Miller Lite, $4.50 Yuengling, $5 Blue Moon/seasonal drafts, $5 Jack, $5 Tito's, $5 rails, $5 wine.",
       vibe: "No-frills neighborhood sports bar with a rooftop deck.",
-      note: "One June-2026 listing says the happy hour was dropped. Call 202-347-6666 before counting on it.",
-      v: false, url: "https://www.dmvhappyhours.com/happyhours/penn-quarter-sports-tavern", link: "dmvhappyhours.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 19 }] },
+      note: "Open and still listed in 2026 (the earlier “HH dropped” rumor didn't pan out), but the bar publishes no HH on its own site — details are aggregator-sourced; call 202-347-6666 to confirm.",
+      v: false, url: "https://www.pennquartersportstavern.com/", link: "pennquartersportstavern.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 19}] },
     { n: "Dirty Habit", lat: 38.8969962, lng: -77.0224996, walk: 7, addr: "555 8th St NW (Hotel Monaco)",
       when: "Mon–Fri 3–7 PM",
       deals: "~$9 wines, $13 margaritas, ~$10 seasonal cocktails (frosé and friends).",
       vibe: "Swanky hotel courtyard scene; location rotates — ask the host.",
       v: true, url: "https://dirtyhabitdc.com/events", link: "dirtyhabitdc.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 19}] },
     { n: "Zaytinya", lat: 38.8991821, lng: -77.0236791, walk: 7, addr: "701 9th St NW",
       when: "Mon–Fri 4–6 PM (per June 2026 listing)",
       deals: "$7 beer, $8 all wines, $10–16 cocktails, $6 flatbreads at the bar.",
       vibe: "Airy José Andrés Mediterranean mezze; polished after-work crowd.",
-      note: "Own site doesn't publish HH details — confirm on arrival.",
+      note: "Zaytinya's own site publishes no DC happy hour (its Vegas/Culver City spots do); OpenTable flags a HH amenity but no terms. Prices here are aggregator-sourced and may be stale — call (202) 638-0800.",
       v: false, url: "https://dchappyhours.com/place/zaytinya", link: "dchappyhours.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}] },
+    { n: "Irish Channel Restaurant &amp; Pub", lat: 38.8993983, lng: -77.0191711, walk: 7, addr: "500 H St NW",
+      when: "Mon–Fri (times vary by listing) · open late",
+      deals: "Rotating daily draft specials (~$4–5.50) plus cheap pub grub — tenders, burgers, potato skins, dips.",
+      vibe: "Classic no-frills Chinatown Irish pub.",
+      note: "The pub is open, but it publishes no happy-hour menu; the specials above are from a listing over a year old — call (202) 216-0046 to confirm anything's still running.",
+      v: false, url: "https://irishchanneldc.com/", link: "irishchanneldc.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 19}] },
     { n: "Jaleo", lat: 38.8959243, lng: -77.0221617, walk: 8, addr: "480 7th St NW",
       when: "Mon–Fri 3–6:30 PM · bar area · “Sangría Hour”",
       deals: "$8 sangría, select wines, priced-down tapas ($8 patatas bravas, gambas al ajillo).",
       vibe: "José Andrés' flagship Spanish tapas institution, festive at the bar.",
       v: true, url: "https://www.jaleo.com/event/sangria-hour/", link: "jaleo.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 18.5 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 18.5}] },
     { n: "Carmine's", lat: 38.8956085, lng: -77.0217130, walk: 8, addr: "425 7th St NW",
       when: "Sun–Fri 3–7 PM · bar only",
       deals: "2-for-$6 meatball sliders, $9 apps, $10 cheese &amp; charcuterie, $6 Peroni/Miller Lite, $8 house wine, $10 Aperol fizz &amp; frozen cosmos.",
       vibe: "Big boisterous family-style Italian bar; generous 4-hour window.",
       v: true, url: "https://carminesnyc.com/menus/washington-dc-happy-hour", link: "carminesnyc.com",
-      win: [{ d: [0,1,2,3,4,5], s: 15, e: 19 }] },
+      win: [{d: [0, 1, 2, 3, 4, 5], s: 15, e: 19}] },
     { n: "Cuba Libre", lat: 38.9003410, lng: -77.0237003, walk: 8, addr: "801 9th St NW",
       when: "Mon–Fri 2–7:30 PM · bar &amp; bar tables",
       deals: "$8 mojitos/caipirinhas/sangría, $6 beer, $10 craft cocktail or Churrasco burger, $7–8 empanadas, tostones, croquetas, wings.",
       vibe: "Colorful Cuban rum bar; a 5½-hour window.",
       v: true, url: "https://www.cubalibrerestaurant.com/assets/pdfs/en/cuba-libre-washington-happy-hour-menu.pdf", link: "cubalibrerestaurant.com (menu PDF)",
-      win: [{ d: [1,2,3,4,5], s: 14, e: 19.5 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 14, e: 19.5}] },
     { n: "The Smith", lat: 38.8977709, lng: -77.0243503, walk: 8, addr: "901 F St NW",
       when: "Mon–Fri 3–6 PM · plus Fri–Sat from 10 PM · “Martini Hour”",
       deals: "$12 martinis with hand-cut fries; $20 martini + three oysters.",
       vibe: "Bustling brasserie in a landmark bank building.",
       v: true, url: "https://thesmithrestaurant.com/location/penn-quarter/", link: "thesmithrestaurant.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }, { d: [5,6], s: 22, e: 24 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 18}, {d: [5, 6], s: 22, e: 24}] },
     { n: "The Capital Grille", lat: 38.8932991, lng: -77.0205014, walk: 8, addr: "601 Pennsylvania Ave NW",
       when: "Mon–Fri 3–6 PM · lounge · “Capital Hours”",
-      deals: "$12 cocktails, $9 wines, $18 sliced dry-aged NY strip, $12 truffle arancini.",
-      vibe: "Clubby power-steakhouse lounge — peak DC.",
-      note: "Times from a June 2026 listing; their site blocks robots. Confirm prices on arrival.",
-      v: false, url: "https://www.capitalgrille.com/", link: "capitalgrille.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
+      deals: "$12 cocktails, $9 wines by the glass, $18 sliced dry-aged NY strip, $12 mushroom-truffle arancini, $14 parmesan truffle fries, $15 petite filet sandwiches.",
+      vibe: "Clubby power-steakhouse lounge — peak DC. The chain's first-ever happy hour.",
+      v: true, url: "https://www.thecapitalgrille.com/happy-hour", link: "thecapitalgrille.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 18}] },
     { n: "Boqueria", lat: 38.8994820, lng: -77.0237050, walk: 8, addr: "777 9th St NW",
       when: "Mon–Sat 3–7 PM",
       deals: "$8 mini martinis, $6 Spanish beer, sangría, $2–12 tapas ($2 pan con tomate, $6 croquetas).",
       vibe: "Barcelona-style tapas bar; venue brags on this HH itself, 4-hour window.",
       v: true, url: "https://boqueriarestaurant.com/location/dc/penn-quarter/", link: "boqueriarestaurant.com",
-      win: [{ d: [1,2,3,4,5,6], s: 15, e: 19 }] },
+      win: [{d: [1, 2, 3, 4, 5, 6], s: 15, e: 19}] },
+    { n: "Jackpot", lat: 38.8993277, lng: -77.0221063, walk: 8, addr: "726 7th St NW",
+      when: "Daily 4–8 PM",
+      deals: "$2 off all beers, $5 rail drinks, free popcorn; BYO food from nearby spots is welcome.",
+      vibe: "Low-lit subterranean dive with a kitschy streak; 21+.",
+      v: true, url: "https://www.jackpotdc.com/", link: "jackpotdc.com",
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 16, e: 20}] },
+    { n: "Rocket Bar", lat: 38.8990180, lng: -77.0222297, walk: 8, addr: "714 7th St NW",
+      when: "Daily afternoon until 8 PM",
+      deals: "$6 rail drinks, $6 wines by the glass, discounted “Rocket Fuel” lagers.",
+      vibe: "Cavernous basement game bar — pool, shuffleboard, darts, skee-ball.",
+      v: true, url: "https://rocketbardc.com/", link: "rocketbardc.com",
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 15, e: 20}] },
+    { n: "Bar Chinois", lat: 38.9014056, lng: -77.0179870, walk: 8, addr: "455 I St NW (Mt. Vernon Triangle)",
+      when: "Daily 5–7 PM (homepage says Mon–Fri — confirm weekends)",
+      deals: "$1 dumplings and half-price cocktails — the only two specifics the venue publishes.",
+      vibe: "Sleek, dim Michelin-listed Chinese restaurant and cocktail lounge; French-inflected drinks.",
+      note: "The venue's own pages disagree on daily vs Mon–Fri and don't say whether it's bar-only — call (202) 851-6250 if the weekend or scope matters.",
+      v: true, url: "https://www.barchinois.com/dc.html", link: "barchinois.com",
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 17, e: 19}] },
     { n: "China Chilcano", lat: 38.8953808, lng: -77.0221400, walk: 9, addr: "418 7th St NW",
-      when: "Mon–Fri 4–6 PM · bar &amp; patio · “Pisco Hour”",
-      deals: "Discounted pisco sours &amp; chilcanos, wines by the glass, dim sum bites (prices unpublished).",
+      when: "Mon–Fri 4–6 PM · bar &amp; patio only · “Pisco Hour”",
+      deals: "~$7 pisco sours &amp; chilcanos, $6–7 wines and drafts, ~$5–10 piqueos (dim sum bites). Prices approximate — the group's Pisco Hour menu PDF is offline.",
       vibe: "José Andrés' Peruvian-Chinese-Japanese mashup, quirky-cool.",
       v: true, url: "https://www.chinachilcano.com/event/pisco-hour-is-back/", link: "chinachilcano.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}] },
     { n: "Oyamel", lat: 38.8949420, lng: -77.0216670, walk: 9, addr: "401 7th St NW",
       when: "Mon–Fri 4–6 PM · “Hora Feliz”",
       deals: "Specially priced margaritas and antojitos (grasshopper tacos for the brave).",
       vibe: "Festive upscale Mexican, killer margaritas.",
       v: true, url: "https://www.oyamel.com/", link: "oyamel.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}] },
     { n: "City Tap Penn Quarter", lat: 38.9010301, lng: -77.0237868, walk: 9, addr: "901 9th St NW",
       when: "Mon–Fri 4–6 PM (some listings say from 3)",
       deals: "$5 draft/can beers, $6 wines, $7 mixed drinks, $8 bites — ~40 taps.",
       vibe: "Big craft-beer gastropub; easy group default.",
       v: true, url: "https://www.citytap.com/menu/happy-hour-1/", link: "citytap.com",
-      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 18}] },
+    { n: "Cucina Morini", lat: 38.9017467, lng: -77.0158693, walk: 9, addr: "901 4th St NW (Mt. Vernon Triangle)",
+      when: "Daily from 5 PM · Martini Lounge only · “Martini Hour”",
+      deals: "All martinis $7 (Morini Martini, classic dirty, Sicilian, Made in Manhattan…), $6 rosemary potato chips, $6 marinated olives, $13 cavolfiore.",
+      vibe: "Handmade-pasta Southern Italian; the $7 martinis are the draw.",
+      note: "Site says “every day starting at 5 PM” with no listed end time — assume it runs into the evening.",
+      v: true, url: "https://www.cucinamorini.com/menu/martini-hour/", link: "cucinamorini.com",
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 17, e: 20}] },
+    { n: "Succotash Prime", lat: 38.8975272, lng: -77.0247410, walk: 9, addr: "915 F St NW",
+      when: "Mon–Fri 11:30 AM–7 PM · Sun 4–7 PM · bar only",
+      deals: "$7–9 wines, $4–6 beers, $7–8 cocktails (sangría pitchers $35–39), $2 wings on Wed “Wingsday” (min 4), $1.50 deviled eggs, $9 Korean cauliflower, $13 chicken &amp; waffles. One of the longest windows around.",
+      vibe: "Chef Edward Lee's progressive Southern-Korean inside a grand 1911 bank hall.",
+      note: "Verified from their happy-hour menu PDF; the homepage banner advertises $1.50 wings while the menu lists $2 — worth a quick check.",
+      v: true, url: "https://www.succotashrestaurant.com/", link: "succotashrestaurant.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 11.5, e: 19}, {d: [0], s: 16, e: 19}] },
+    { n: "Yard House", lat: 38.9007127, lng: -77.0221310, walk: 9, addr: "812 7th St NW (by Capital One Arena)",
+      when: "Mon–Fri 3–6 PM · plus late-night 10 PM–close",
+      deals: "Half-off select shared appetizers &amp; pizzas; ~$2 off drafts, wine, spirits, and cocktails from a huge beer wall.",
+      vibe: "Big, buzzy chain gastropub; a reliable pre/post-game group spot.",
+      note: "Happy hour is suspended on Capital One Arena event nights — check whether there's a game or show before you count on it.",
+      v: true, url: "https://www.yardhouse.com/locations/dc/washington/washington-restaurant/8376", link: "yardhouse.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 15, e: 18}, {d: [1, 2, 3, 4, 5], s: 22, e: 24}] },
+    { n: "Asia Nine Bar &amp; Lounge", lat: 38.8963590, lng: -77.0250648, walk: 9, addr: "915 E St NW",
+      when: "Mon–Fri 4–8 PM · also all day Sat &amp; Sun",
+      deals: "$14 sampler (pick 3 bites), $10 martinis, $8 craft cocktails, $5 drafts / $17 pitchers.",
+      vibe: "Pan-Asian fusion (Thai/Japanese/Chinese/Vietnamese/Korean) with a full bar.",
+      note: "Prices are from the venue's own menu; the weekday window comes from a listing — confirm the weekend hours.",
+      v: true, url: "https://asianine.com/menus.html", link: "asianine.com",
+      win: [{d: [1, 2, 3, 4, 5], s: 16, e: 20}, {d: [0, 6], s: 12, e: 22}] },
     { n: "Ella's Wood Fired Pizza", lat: 38.8976680, lng: -77.0241800, walk: 10, addr: "610 9th St NW",
       when: "Mon–Fri 3:30–5:30 PM · bar only",
       deals: "$10–13 happy hour pizzas, $2 off all drafts, $8 sangría, $11 cocktails, $5 garlic fries.",
       vibe: "Casual wood-fired pizza bar (relocated from F St — alive and well).",
       v: true, url: "https://ellasdc.com/washington-dc-ella-s-wood-fired-pizza-happy-hour-menu", link: "ellasdc.com",
-      win: [{ d: [1,2,3,4,5], s: 15.5, e: 17.5 }] },
+      win: [{d: [1, 2, 3, 4, 5], s: 15.5, e: 17.5}] },
     { n: "RPM Italian", lat: 38.9022647, lng: -77.0212717, walk: 10, addr: "650 K St NW",
       when: "Daily 3–6 PM · “Aperitivo Hour”",
       deals: "Select wines &amp; beers from $3, $8 signature cocktails, all cicchetti $8 (pizzettes, grilled oysters).",
       vibe: "Glossy see-and-be-seen Italian; best-value upscale HH around.",
       v: true, url: "https://www.rpmrestaurants.com/blogs/rpm-happy-hour/", link: "rpmrestaurants.com",
-      win: [{ d: [0,1,2,3,4,5,6], s: 15, e: 18 }] }
+      win: [{d: [0, 1, 2, 3, 4, 5, 6], s: 15, e: 18}] }
   ]
 };
