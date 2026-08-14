@@ -2,12 +2,15 @@
    via OSRM's public foot router (the one openstreetmap.org uses). Much more
    accurate than straight-line distance where rail lines / highways force detours.
 
-   Usage:  node scripts/walktimes.mjs maps/<city>/data.js
+   Usage:  node scripts/walktimes.mjs maps/<city>/data.js [cutoffMinutes]
    Prints each spot's routed walk minutes (raw + a ~+10% calibration toward
    Google's slightly more conservative numbers), sorted nearest-first, so you can
-   set each spot's `walk` and decide the cutoff. Be polite: one call per run. */
+   set each spot's `walk` and decide the cutoff. The cutoff defaults to 20; pass
+   the map's own cutoff (Alexandria is 27) so the flags mean something.
+   Be polite: one call per run. */
 const path = process.argv[2];
-if (!path) { console.error("usage: node scripts/walktimes.mjs maps/<city>/data.js"); process.exit(1); }
+const CUT = Number(process.argv[3]) || 20;
+if (!path) { console.error("usage: node scripts/walktimes.mjs maps/<city>/data.js [cutoffMinutes]"); process.exit(1); }
 global.window = {};
 await import("file://" + process.cwd() + "/" + path.replace(/^\.\//, ""));
 const D = window.DATA, a = D.meta.anchor;
@@ -21,6 +24,6 @@ const rows = D.spots.map((s, i) => ({ n: s.n, v: s.v, min: j.durations[0][i + 1]
 console.log("cal osrm  netm  V  name");
 for (const r of rows) {
   const cal = Math.round(r.min * 1.10);
-  const flag = cal <= 20 ? "" : cal <= 22 ? " <edge>" : " DROP";
+  const flag = cal <= CUT ? "" : cal <= CUT + 2 ? " <edge>" : " DROP";
   console.log(`${String(cal).padStart(3)} ${r.min.toFixed(0).padStart(4)} ${String(Math.round(r.m)).padStart(5)}  ${r.v ? "V" : "."}  ${r.n}${flag}`);
 }

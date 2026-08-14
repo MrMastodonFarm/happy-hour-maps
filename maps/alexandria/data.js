@@ -1,22 +1,49 @@
-/* Happy hours within ~20 minutes' walk of 106 E Walnut St, Alexandria VA
-   (Rosemont / north Old Town / Braddock). Compiled 2026-07-17; re-verified 2026-08-14.
+/* Happy hours within a 27-minute walk of 106 E Walnut St, Alexandria VA
+   (Rosemont / north Old Town / Braddock / Del Ray / upper King St).
+   Compiled 2026-07-17; re-verified 2026-08-14; radius extended 2026-08-14.
+
+   THE RADIUS: the cutoff used to be 20 minutes. It is now 27, set by the
+   furthest place we'd actually walk to — Cheesetique at the top of Del Ray
+   (27 min). Everything at least as close is in scope. That line is clean:
+   the next venue out (Lost Boy Cider) is 28 and the waterfront is 34+.
+
    Coordinates geocoded via OSM Nominatim; walk times are REAL walking-route
    estimates from home via OSRM foot routing (accounts for the rail-line and
-   highway detours). "verified" = confirmed on the venue's OWN site/menu;
-   "check ahead" = aggregator-only, conflicting sources, or times/prices not posted. */
+   highway detours), x1.10 to align with Google. "verified" = confirmed on the
+   venue's OWN site/menu; "check ahead" = aggregator-only, conflicting sources,
+   or times/prices not posted.
+
+   ---------------------------------------------------------------------------
+   INTERNAL — NOT PUBLISHED ON THE PAGE.
+   Closed, but still haunting old guides and aggregator listings. Kept here so
+   a future sweep doesn't "rediscover" them as live happy hours:
+     - The Sushi Bar (Del Ray) — closed
+     - Live Oak — closed
+     - Society Fair — closed
+     - Pizzeria Paradiso (Old Town, 124 King St) — closed fall 2020 after ten
+       years. It ran a POP-UP inside Hank's Oyster Bar (818 N Saint Asaph St)
+       from March 13, 2025, but that ended: Paradiso's own site now says
+       "Thank you for your support in Old Town! Our popup hosted by Hank's Old
+       Town has ended," and Hank's Pasta Bar (takeout/delivery only) took the
+       space on Aug 20, 2025. Verified 2026-08-14 at eatyourpizza.com/popup.
+       There is NO Paradiso in Alexandria today.
+     - Charlie's on the Avenue — now Matt & Tony's
+     - Kaizen Tavern / Zuki Moon — now Pak Soii
+     - Whiskey & Oyster (Carlyle) — closed Feb 2026
+   --------------------------------------------------------------------------- */
 window.DATA = {
   meta: {
-    docno: "ALX-26-HH02",
+    docno: "ALX-26-HH03",
     eyebrow: ["A Neighborhood Field Guide", "Field-verified August 14, 2026"],
-    title: 'Happy Hour Within a <em>20-Minute Walk</em> of Home',
-    dek: 'Every spot below is within about a <strong>20-minute walk</strong> of home in north Old Town — ' +
-         'the Braddock corner, up Mount Vernon Ave into lower <strong>Del Ray</strong>, and the top of ' +
-         '<strong>King Street</strong>. Walk times are real routed estimates (not straight-line), so they account ' +
-         'for the detour around the rail tracks. Re-verified in full for the mid-August edition: two additions — ' +
-         '<strong>Little Birdie</strong> (its happy hour debuts Monday, Aug 17) and <strong>Chop Shop Taco</strong> — ' +
-         'and no closures. Most spots were confirmed on the venue’s own menu; the rest are real but rest on ' +
-         'aggregator listings or unposted hours, so they’re flagged <strong>“check ahead.”</strong> ' +
-         'The upper-King and waterfront scene is a bit farther — see the appendix. Sorted nearest-first; pin numbers match the list.',
+    title: 'Happy Hours <em>Close to Home</em>',
+    dek: 'Every spot below is an easy walk from home in north Old Town — the Braddock corner, up Mount ' +
+         'Vernon Ave through <strong>Del Ray</strong>, across Parker-Gray, and out along <strong>King ' +
+         'Street</strong>. This edition widens the net to the top of the Avenue and the 700–900 blocks of ' +
+         'King, adding <strong>nine</strong> spots: Del Ray Public House, Pork Barrel BBQ and Cheesetique up ' +
+         'in Del Ray; The Majestic, The Light Horse, Murphy’s, Don Taco and The People’s Drug on King St; ' +
+         'and <strong>Rustico</strong> out on Slaters Lane. Most spots were confirmed on the venue’s own ' +
+         'menu; the rest are real but rest on aggregator listings or unposted hours, so they’re flagged ' +
+         '<strong>“check ahead.”</strong> Sorted nearest-first; pin numbers match the list.',
     tz: "America/New_York",
     zoom: 16,
     radiusMin: null,
@@ -24,41 +51,44 @@ window.DATA = {
     anchor: { name: "Home", label: "★", addr: "Rosemont · north Old Town", lat: 38.8125607, lng: -77.0579384 },
     appendix:
       '<h2>Appendix</h2>' +
-      '<h3>Just past the 20-minute line</h3>' +
-      '<p>A little too far to make the cut, but close. Down King St (~25–27 min): <strong>The People’s Drug</strong> ' +
-      '(103 N Alfred), <strong>Don Taco</strong> (808 King, Mon–Fri 3–7, $4 tacos), and <strong>The Light Horse</strong> ' +
-      '(715 King, Mon–Fri 3–6). <strong>Rustico</strong> (827 Slaters Ln, Mon–Fri 4–6, $5 drafts / $7 cocktails) is ' +
-      '~27 min thanks to the rail crossing. Farther still, the classic <strong>lower King St &amp; waterfront</strong> ' +
-      'scene (~30+ min toward the Potomac): The Warehouse, Sonoma Cellar, Mia’s Italian, Vola’s Dockside (Mon–Fri 3–7, ' +
-      '$2 oysters), Union Street Public House, Ada’s on the River, and Barca Pier. Up the north end of Del Ray (~24+ min): ' +
-      '<strong>Del Ray Public House</strong> ($2 off drafts/wine/cocktails; the former Del Ray Pizzeria, rebranded ' +
-      'spring 2026 — Chicago-style hot-dog pop-up <strong>Cubbies</strong> now runs upstairs on weekends), ' +
-      '<strong>Pork Barrel BBQ</strong>, and <strong>Cheesetique</strong> ($2 off wines &amp; beers).</p>' +
+      '<h3>Farther afield</h3>' +
+      '<p>Past the point where you’d rather drive. <strong>Lost Boy Cider</strong> (317 Hooffs Run Dr) sits just ' +
+      'beyond the rest. <strong>Floriana</strong> (277 S Washington St) is the Northern Italian raw-bar opening ' +
+      'targeted for late August/early September, with happy-hour specials planned. <strong>Bilbo Baggins</strong> ' +
+      '(208 Queen St) and <strong>King &amp; Rye</strong> (480 King St) are a little past that. The classic ' +
+      '<strong>lower King St &amp; waterfront</strong> scene is a solid half-hour-plus on foot: The Warehouse, ' +
+      'Sonoma Cellar, Il Porto, Landini Brothers, Fish Market, Bugsy’s, Mia’s Italian, Blackwall Hitch, ' +
+      'Vola’s Dockside (Mon–Fri 3–7, $2 oysters), Virtue Feed &amp; Grain, Union Street Public House, Chadwicks, ' +
+      'Ada’s on the River and Barca Pier. The <strong>far north end of Del Ray</strong> is a similar hike: ' +
+      'Ruthie’s All-Day, Hops N Shine and Northside 10.</p>' +
+      '<h3>Close by, but no happy hour</h3>' +
+      '<p>Easy walks that don’t have one, so you don’t go looking. <strong>The Garden</strong> ' +
+      '(1503 Mt Vernon Ave) — still a fine beer garden, closed Mondays, but the only happy-hour ' +
+      'announcement on their site is an Instagram post from May 2022. <strong>Hard Times Cafe</strong> ' +
+      '(1404 King St) posts no happy hour, but does run all-day food specials: Wed grilled wings $12.99, ' +
+      'Thu chili macs $12.49, Fri big fish sandwich $11.99, Sat onion rings $8.99, Sun $3 off all dinners 3–6. ' +
+      '<strong>Del Ray Cafe</strong> (205 E Howell Ave) and <strong>Taqueria el Poblano</strong> ' +
+      '(2400 Mt Vernon Ave) have nothing posted on their own sites and nothing on the aggregators either.</p>' +
       '<h3>Worth knowing</h3>' +
       '<p><strong>Bastille</strong> still runs all-night happy hour Wednesdays and Sundays (now posted as 4–9 PM) — ' +
-      'the best deal in the radius — though it no longer publishes itemized prices. <strong>Hank’s</strong> and ' +
-      '<strong>T.J. Stone’s</strong> are bar-only, and T.J. Stone’s happy-hour price menu is currently broken on their ' +
-      'site — the window holds, but re-check prices on arrival. <strong>Vermilion</strong> stopped publishing its ' +
-      'happy-hour days and times (the priced menu is still posted). <strong>Mason Social</strong>’s Instagram claims ' +
-      'happy hour seven days a week, but no venue-posted times or prices exist anywhere — a quick call locks it down. ' +
-      '<strong>The Garden</strong> (1503 Mt Vernon Ave) has dropped its happy-hour advertising entirely since July — ' +
-      'still a fine beer garden (closed Mondays), but no happy hour is currently posted, so it moves off the map. ' +
-      'On the watchlist: <strong>Floriana</strong> (277 S Washington St, Northern Italian with a raw bar and planned ' +
-      'happy-hour specials) targets a late-August/early-September opening — south Old Town, past the 20-minute line.</p>' +
-      '<h3>Closed — still haunting old guides</h3>' +
-      '<ul class="closed-grid">' +
-      '<li><s>The Sushi Bar</s> (Del Ray) — closed</li>' +
-      '<li><s>Live Oak</s> — closed</li>' +
-      '<li><s>Society Fair</s> — closed</li>' +
-      '<li><s>Pizzeria Paradiso</s> (Old Town) — closed; now a pop-up inside Hank’s</li>' +
-      '<li><s>Charlie’s on the Avenue</s> — now Matt &amp; Tony’s</li>' +
-      '<li><s>Kaizen Tavern / Zuki Moon</s> — now Pak Soii</li>' +
-      '<li><s>Whiskey &amp; Oyster</s> (Carlyle) — closed Feb 2026</li>' +
-      '</ul>' +
+      'the best deal on the map — though it no longer publishes itemized prices. <strong>Cheesetique</strong> is ' +
+      'the only spot here running <em>seven days a week</em>, and <strong>Murphy’s</strong> the only other one that ' +
+      'includes weekends. <strong>The Majestic</strong> reopened in April 2026 under chef Santiago Lopez, so its ' +
+      '“Majestic Hour” is new — the window is posted, the prices aren’t. <strong>Rustico</strong>’s happy-hour PDF ' +
+      'is priced but no longer names the days. <strong>Hank’s</strong>, <strong>T.J. Stone’s</strong> and ' +
+      '<strong>Cheesetique</strong> are bar/lounge only, and T.J. Stone’s happy-hour price menu is currently broken ' +
+      'on their site — the window holds, but re-check prices on arrival. <strong>Vermilion</strong> stopped ' +
+      'publishing its happy-hour days and times (the priced menu is still posted). <strong>Mason Social</strong>’s ' +
+      'Instagram claims happy hour seven days a week, but no venue-posted times or prices exist anywhere — a quick ' +
+      'call locks it down. Upstairs at <strong>Del Ray Public House</strong>, the Chicago-style hot-dog and ' +
+      'Italian-beef counter <strong>Cubbies</strong> opened July 18, 2026 and runs weekends only (Fri 5–10, ' +
+      'Sat 2–10, Sun 12–8) — it sold out on day one.</p>' +
       '<h3>Methodology</h3>' +
       '<p>Compiled July 17, 2026 from three neighborhood sweeps (Del Ray, upper Old Town / King St, and the ' +
       'Braddock corner); every venue re-verified August 14, 2026, plus a fresh sweep for openings and closures. ' +
-      '“Verified” means the venue’s own website, menu page, or menu PDF was opened and confirmed current. ' +
+      'The same day the net was widened to the top of Del Ray — everything at least as close as Cheesetique, ' +
+      'measured by real walking routes rather than distance on a map — and every venue that came into scope was ' +
+      'researched from scratch. “Verified” means the venue’s own website, menu page, or menu PDF was opened and confirmed current. ' +
       '“Check ahead” means the venue is open and offers a happy hour, but the details come from an aggregator, ' +
       'sources conflict, or hours/prices aren’t posted — call before counting on it. Coordinates are geocoded from ' +
       'street addresses (accurate to the address, not the exact door); walk times are real walking-route estimates ' +
@@ -109,7 +139,7 @@ window.DATA = {
       when: "Mon–Fri 3–7 PM",
       deals: "Tacos, margaritas, cocktails & beer — the 3–7 window is on their own site, but deals aren’t itemized; call 571-970-6438 for specifics.",
       vibe: "Garage-chic taco & margarita bar in Parker-Gray, from the Mason Social team.",
-      note: "A miss from the July edition — it’s been here since 2023 with one of the longest windows in the radius.",
+      note: "A miss from the July edition — it’s been here since 2023 with one of the longest windows on the map.",
       v: true, url: "https://www.chopshoptaco.com/", link: "chopshoptaco.com",
       win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
     { n: "Pak Soii Izakaya & Bar", lat: 38.8235581, lng: -77.0580104, walk: 20, addr: "1909 Mt Vernon Ave",
@@ -155,6 +185,67 @@ window.DATA = {
       deals: "Street corn $5, elote loco $5, nachos $8, T&T dip sampler $10, empanada $4, trio tacos $12. All beer $5, margarita flight $12 (frozen $10), $1 off fresh-squeezed rocks margaritas.",
       vibe: "Contemporary margarita & taco bar in Carlyle Square.",
       v: true, url: "https://www.alexandriataco.com/events/happy-hour", link: "alexandriataco.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] }
+      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
+    { n: "The Majestic", lat: 38.8056311, lng: -77.0495570, walk: 25, addr: "911 King St",
+      when: "“Majestic Hour” · Mon–Fri 3–7 PM · at the bar",
+      deals: "A dedicated bar-bites menu plus the iconic Majestic Burger at a happy-hour price. The window is posted on their own site; prices are not — call 703-837-9117.",
+      vibe: "Old Town landmark (the 1932 neon sign) reopened April 2026 under chef Santiago Lopez — New American with a Mediterranean lean.",
+      note: "New this edition. Reopened to the public April 10, 2026 under new ownership, so every pre-2026 listing for this address is out of date.",
+      v: true, url: "https://www.themajesticva.com/", link: "themajesticva.com",
+      win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
+    { n: "The People's Drug", lat: 38.8057579, lng: -77.0486695, walk: 25, addr: "103 N Alfred St",
+      when: "Aggregators say Mon–Fri 3–7 PM — not posted by the venue",
+      deals: "No happy-hour menu on their own site; it publishes only “cocktail hours are 4pm–midnight Monday–Friday and all day Saturday & Sunday.” Aggregators claim a 3–7 bar happy hour. Call 571-257-8851.",
+      vibe: "Lunch-counter revival in a 1905 drugstore space — serious cocktail bar attached to a sandwich shop.",
+      v: false, url: "https://thepeoplesdrug.com/", link: "thepeoplesdrug.com",
+      win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
+    { n: "Del Ray Public House", lat: 38.8260297, lng: -77.0587719, walk: 25, addr: "2218 Mt Vernon Ave",
+      when: "Mon–Fri 4–6 PM",
+      deals: "$2 off all draft beers, glasses of wine, DRP cocktails, and select food items.",
+      vibe: "The old Del Ray Pizzeria, rebranded spring 2026 into a proper public house in a rambling old Del Ray house.",
+      note: "New this edition. Cubbies — Chicago-style hot dogs and Italian beef — opened upstairs July 18, 2026, weekends only.",
+      v: true, url: "https://www.delraypublichouse.com/", link: "delraypublichouse.com",
+      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+    { n: "Pork Barrel BBQ", lat: 38.8266821, lng: -77.0589169, walk: 26, addr: "2312 Mt Vernon Ave",
+      when: "Weekdays 4–6 PM",
+      deals: "The window is listed as a recurring event on their own site; prices aren’t published — call 703-822-5699. Live music every Friday at 8:30, music bingo some Wednesdays.",
+      vibe: "Del Ray’s oak-and-hickory smokehouse, a neighborhood institution with a patio.",
+      note: "New this edition.",
+      v: true, url: "https://www.bbqdelray.com/events", link: "bbqdelray.com",
+      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] },
+    { n: "Don Taco", lat: 38.8050947, lng: -77.0484934, walk: 26, addr: "808 King St",
+      when: "Aggregators say Mon–Fri 3–7 PM — not posted by the venue",
+      deals: "Widely listed as $4 tacos plus drink specials, but their own site posts no happy-hour menu (the drink menu is image-only, dated Oct 2025). Call 703-518-5001.",
+      vibe: "Loud, colorful “Flex-Mex” taco and tequila bar — 60+ tequilas and a wall of margaritas.",
+      v: false, url: "https://www.dontacova.com/", link: "dontacova.com",
+      win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
+    { n: "The Light Horse", lat: 38.8053736, lng: -77.0475599, walk: 27, addr: "715 King St",
+      when: "Mon–Fri 3–6 PM",
+      deals: "$5 main draft-line beers, $5.50 Tito’s, $5 house wine, $10 seasonal cocktails, plus happy-hour bites — wings, dips, burgers.",
+      vibe: "Three-level King St bar and grill; the upstairs is the neighborhood’s default big-group room.",
+      note: "New this edition.",
+      v: true, url: "https://thelighthorserestaurant.com/", link: "thelighthorserestaurant.com",
+      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
+    { n: "Cheesetique", lat: 38.8273152, lng: -77.0585775, walk: 27, addr: "2411 Mt Vernon Ave",
+      when: "3–6 PM EVERY DAY · bar & lounge only",
+      deals: "$9 across the board: Oink Fashioned (bourbon, maple, bacon topper), Alexandria Belle, Virginia Sour, Del Ray Buzz, Apple Martini, Graham Beck Brut Rosé, Sauvignon Blanc, red Bordeaux, plus zero-proof. $5 snacks: fried cheese curds, warm olives & manchego, crispy cheese roll, spinachoke dip, wagyu slider. Cheese Lady Sampler $16.",
+      vibe: "Cheese shop out front, dim little wine bar in back — the Del Ray classic.",
+      note: "New this edition — the furthest spot on the map, and the only one pouring seven days a week.",
+      v: true, url: "https://www.cheesetique.com/menu/happy-hour/", link: "cheesetique.com",
+      win: [{ d: [0,1,2,3,4,5,6], s: 15, e: 18 }] },
+    { n: "Murphy's Grand Irish Pub", lat: 38.8053420, lng: -77.0474738, walk: 27, addr: "713 King St",
+      when: "Every day 3–7 PM",
+      deals: "$2.25 off Irish & craft beers, $1.25 off domestics, $3.25 off Jameson, $5 select apps. Weekly: Mon ale burgers 11–3, Tue ½-price burgers 4–9 + trivia at 8, Wed wing night, Thu steak night 5–9.",
+      vibe: "Two-floor Irish pub with nightly live music and no cover — the King St standby.",
+      note: "New this edition. Seven days a week, and the longest daily window on the map.",
+      v: true, url: "https://murphyspub.com/weekly-specials/", link: "murphyspub.com",
+      win: [{ d: [0,1,2,3,4,5,6], s: 15, e: 19 }] },
+    { n: "Rustico", lat: 38.8215706, lng: -77.0465284, walk: 27, addr: "827 Slaters Ln",
+      when: "4–6 PM · days no longer published (was Mon–Fri)",
+      deals: "From their own HH menu: $5 drafts (Notch Kölsch, Lawson’s Little Sip, Sojourn Pink Lady, Drekker POG), $6 wines (sauvignon blanc, pinot noir), $7 cocktails (martini, old fashioned, negroni, manhattan). $5 snacks: meatball sliders, fried chicken sliders, risotto tots, thick-cut fries. $10: wings, pesto flatbread, 10-inch margherita.",
+      vibe: "Beer temple — hundreds of bottles, hearth-fired pizza, a long bar out on Slaters Lane.",
+      note: "New this edition. Prices verified on their own happy-hour PDF, but the PDF gives only “4PM–6PM” with no days — confirm before you go (703-224-5051).",
+      v: false, url: "https://www.rusticorestaurant.com/", link: "rusticorestaurant.com",
+      win: [{ d: [1,2,3,4,5], s: 16, e: 18 }] }
   ]
 };
