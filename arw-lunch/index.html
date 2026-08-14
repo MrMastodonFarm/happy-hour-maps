@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Week at Lunch — Alexandria, Aug 14–23, 2026</title>
+<style>
+  :root{
+    --paper:#fbfaf6; --card:#ffffff; --ink:#1d2534; --muted:#5b6474; --line:#dcd9cf;
+    --navy:#24406b; --navy-soft:#e8ecf3; --amber:#a8700f; --amber-deep:#8a5c0c; --amber-soft:#f5ead2;
+    --good:#2e6b45; --good-soft:#e2efe6; --warn:#8a5a17; --warn-soft:#f3e9d4;
+    --shadow:0 1px 3px rgba(29,37,52,.08),0 4px 14px rgba(29,37,52,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#151a24; --card:#1d2431; --ink:#e9e7de; --muted:#9aa3b2; --line:#323a49;
+      --navy:#8aa5cf; --navy-soft:#232f44; --amber:#d9a13f; --amber-deep:#e2b567; --amber-soft:#33301f;
+      --good:#7dbd94; --good-soft:#20301f; --warn:#d8b26a; --warn-soft:#33301f;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#151a24; --card:#1d2431; --ink:#e9e7de; --muted:#9aa3b2; --line:#323a49;
+    --navy:#8aa5cf; --navy-soft:#232f44; --amber:#d9a13f; --amber-deep:#e2b567; --amber-soft:#33301f;
+    --good:#7dbd94; --good-soft:#20301f; --warn:#d8b26a; --warn-soft:#33301f;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:880px;margin:0 auto;padding:36px 20px 72px;}
+  a{color:var(--navy);}
+  header.mast{border-bottom:3px double var(--line);padding-bottom:22px;margin-bottom:8px;}
+  .eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .eyebrow .docno{color:var(--amber);font-weight:700;}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(28px,4.5vw,42px);
+    line-height:1.12;margin:0 0 12px;text-wrap:balance;}
+  h1 em{font-style:normal;color:var(--amber);}
+  .dek{max-width:62ch;color:var(--muted);margin:0;}
+  .dek strong{color:var(--ink);}
+  h2{font-family:Georgia,"Times New Roman",serif;font-size:24px;margin:40px 0 6px;}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:36px 0 -30px;}
+  .lead-note{color:var(--muted);max-width:64ch;margin:0 0 20px;}
+  .menus{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+  .menu-card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    box-shadow:var(--shadow);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;}
+  .menu-card .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .menu-card h3{font-family:Georgia,serif;font-size:21px;margin:0;}
+  .price{font-family:Georgia,serif;font-size:24px;color:var(--amber);font-weight:700;white-space:nowrap;}
+  .when{font-weight:700;color:var(--navy);font-size:14px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{font-size:12px;font-weight:700;letter-spacing:.04em;padding:2px 9px;border-radius:99px;white-space:nowrap;}
+  .chip.dist{background:var(--navy-soft);color:var(--navy);}
+  .chip.verified{background:var(--good-soft);color:var(--good);text-transform:uppercase;letter-spacing:.08em;}
+  .chip.warn{background:var(--warn-soft);color:var(--warn);text-transform:uppercase;letter-spacing:.08em;}
+  .course{border-top:1px solid var(--line);padding-top:10px;}
+  .course b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+  .course p{margin:0;font-size:14.5px;}
+  .fineprint{font-size:13px;color:var(--muted);margin:0;border-top:1px solid var(--line);padding-top:10px;}
+  .addr{font-size:13px;color:var(--muted);}
+  .fc-list{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
+  .fc{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    padding:16px 20px;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline;}
+  .fc h3{font-family:Georgia,serif;font-size:17.5px;margin:0;}
+  .fc .price{font-size:19px;}
+  .fc .deal{grid-column:1/-1;margin:2px 0 0;font-size:14.5px;}
+  .fc .meta{grid-column:1/-1;display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);}
+  .note-list{margin:14px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:9px;max-width:68ch;}
+  .note-list li{padding-left:2px;}
+  .note-list b{color:var(--ink);}
+  .appendix{border-top:3px double var(--line);margin-top:44px;padding-top:8px;}
+  .appendix p{max-width:68ch;color:var(--muted);font-size:14px;}
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;}
+  .tbl-scroll{overflow-x:auto;}
+  th,td{text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  td.num{text-align:right;padding-right:24px;white-space:nowrap;}
+  th.num{text-align:right;padding-right:24px;}
+  @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth;} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">
+    <span class="docno">ALX-26-RW01</span>
+    <span>A Neighborhood Field Guide</span>
+    <span>Compiled August 14, 2026</span>
+  </div>
+  <h1>Restaurant Week at <em>Lunch</em></h1>
+  <p class="dek">Alexandria Summer Restaurant Week runs <strong>Friday, Aug 14 – Sunday, Aug 23</strong> —
+  ten days, two weekends. The headline program is prix-fixe <strong>dinner</strong> ($35/$45/$55 across 78
+  restaurants), but this report covers the part that matters on a work-from-home day: <strong>lunch</strong>.
+  Every deal below was read off the venue's own posted menu or Visit Alexandria's official 76-page menu book —
+  and the whole 88-listing roster was checked, so this is the complete lunch field, not a sampler.
+  Distances are real routed times from home.</p>
+</header>
+
+<p class="kicker">The Findings</p>
+<h2>Two real prix-fixe lunches — both a 15-minute walk</h2>
+<p class="lead-note">Out of all 88 participating listings, exactly two offer a lunch or brunch prix fixe.
+Both happen to sit on the same Del Ray block, straight up Mount Vernon Ave.</p>
+
+<div class="menus">
+  <div class="menu-card">
+    <div class="head">
+      <h3>Little Birdie</h3>
+      <span class="price">$25</span>
+    </div>
+    <div class="when">Mon–Fri only · 11 AM – 4 PM</div>
+    <div class="chips">
+      <span class="chip dist">15 min walk · 4 min drive</span>
+      <span class="chip verified">Own menu verified</span>
+    </div>
+    <div class="course"><b>Little plate — choose one</b>
+      <p>Spicy pickles · side green goddess salad · deviled eggs · spiced sidewinder fries</p></div>
+    <div class="course"><b>Main — choose one</b>
+      <p>Chicken Sammy (Birdie's Classic: spiced crispy thigh, biddie sauce, garlic-dill pickles, slaw —
+      or Got' Chu: gochujang glaze, pickled daikon-scallion slaw, kimchi mayo) ·
+      Chicken of the Sea blackened-fish sandwich · cold noodle salad · Big Ray's green goddess salad</p></div>
+    <div class="course"><b>Dessert — included</b>
+      <p>Oatmeal cream pies</p></div>
+    <p class="fineprint">Add the "Caviar Nug" for +$14. Weekdays only — Sat/Sun is their regular brunch, not
+    this menu. Del Ray's newest restaurant (opened June 2026, from the Matt &amp; Tony's owners) — and its
+    separate everyday happy hour debuts Mon Aug 17, so a late lunch can roll straight into it.</p>
+    <div class="addr">1504B Mount Vernon Ave · littlebirdieva.com · (571) 720-9600</div>
+  </div>
+
+  <div class="menu-card">
+    <div class="head">
+      <h3>Matt &amp; Tony's</h3>
+      <span class="price">$35</span>
+    </div>
+    <div class="when">All 10 days · 8 AM – 4:30 PM</div>
+    <div class="chips">
+      <span class="chip dist">14 min walk · 4 min drive</span>
+      <span class="chip verified">Own menu verified</span>
+    </div>
+    <div class="course"><b>Pick a format — Breakfast Spread</b>
+      <p>Two eggs your way, peppered bacon, home fries, honey cornbread + one add-on
+      (chicken &amp; biscuit · shrimp &amp; grits · cornflake-crusted French toast sticks ·
+      mini chicken &amp; waffles)</p></div>
+    <div class="course"><b>— or the Lunch Plate</b>
+      <p>Crispy chicken sandwich, M+T smash burger (Beyond available), or Old Bay shrimp burger,
+      with seasoned or sweet-potato fries + one small plate (kale bowl · avo goddess salad · Scotch eggs)</p></div>
+    <div class="course"><b>Dessert — either way</b>
+      <p>Sweet potato &amp; ricotta donuts · bourbon peach pudding</p></div>
+    <p class="fineprint">One combined brunch-or-lunch menu, offered every day of Restaurant Week including
+    both weekends — the only prix-fixe lunch option on a Saturday or Sunday.</p>
+    <div class="addr">1501 Mount Vernon Ave · mattandtonysva.com · (703) 429-4950</div>
+  </div>
+</div>
+
+<p class="kicker">The Fast-Casual Track</p>
+<h2>Counter-service deals, all lunch-friendly</h2>
+<p class="lead-note">Eight more venues run Restaurant Week specials with no set seating — order at the counter,
+eat at noon. Deals transcribed from the official menu book; sorted closest-first. Hours are
+aggregator-sourced, so double-check before a special trip.</p>
+
+<div class="fc-list">
+  <div class="fc">
+    <h3>Junction Bakery &amp; Bistro</h3><span class="price">$5.50–16</span>
+    <p class="deal">À la carte specials: grilled peach toast $11 · chopped brisket sandwich $16
+    (+$4 jalapeño-cheddar sausage) · pork spareribs $14 · seasonal cruffin $5.50 · banana pudding $5.50.
+    Dine-in or takeout, all ten days.</p>
+    <div class="meta"><span class="chip dist">16 min walk · 4 min drive</span>
+    <span>1508 Mount Vernon Ave, Del Ray — across from Little Birdie</span></div>
+  </div>
+  <div class="fc">
+    <h3>St. Elmo's Coffee Pub — Old Town North</h3><span class="price">$10.99</span>
+    <p class="deal">Any sandwich + bag of chips + soda, in-store or online, all ten days.</p>
+    <div class="meta"><span class="chip dist">23 min walk · 4 min drive</span>
+    <span>529 Montgomery St</span></div>
+  </div>
+  <div class="fc">
+    <h3>Market 2 Market</h3><span class="price">$10.99</span>
+    <p class="deal">Same combo — any sandwich (Italian-style &amp; classic hot subs) + chips + soda.
+    The Del Ray deli shares a flyer with St. Elmo's in the official book.</p>
+    <div class="meta"><span class="chip dist">25 min walk · 4 min drive</span>
+    <span>116 E Del Ray Ave</span></div>
+  </div>
+  <div class="fc">
+    <h3>St. Elmo's Coffee Pub — Del Ray</h3><span class="price">$10.99</span>
+    <p class="deal">Same sandwich + chips + soda combo.</p>
+    <div class="meta"><span class="chip dist">25 min walk · 4 min drive</span>
+    <span>2300 Mount Vernon Ave</span>
+    <span class="chip warn">Call ahead</span>
+    <span>renovated this spring; listings show normal hours but it wasn't re-verified</span></div>
+  </div>
+  <div class="fc">
+    <h3>Foster's Grille</h3><span class="price">$15.99</span>
+    <p class="deal">"Legendary Eats Deal" — ½-lb Charburger, Philly cheesesteak, or grilled chicken
+    sandwich, with hand-cut fries or onion rings + fountain drink.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 5 min drive</span>
+    <span>2004 Eisenhower Ave, Carlyle Plaza</span></div>
+  </div>
+  <div class="fc">
+    <h3>Union Sandwich Co.</h3><span class="price">$50 for two</span>
+    <p class="deal">"Meal for Two" — any two gourmet sandwiches + two Route 11 chips + a Nightingale
+    ice cream sandwich + <b>any bottle of wine</b>. The sleeper deal of the week if a long lunch is on the table.</p>
+    <div class="meta"><span class="chip dist">37 min walk · 5 min drive</span>
+    <span>101 N Union St, waterfront — budget time for parking</span></div>
+  </div>
+  <div class="fc">
+    <h3>Cooper Mill</h3><span class="price">$15</span>
+    <p class="deal">Choice of three salads at $15: bread-bowl Caesar (add chicken or shrimp +$6) ·
+    watermelon salad · Greek chicken pasta salad. Dine-in or takeout.</p>
+    <div class="meta"><span class="chip dist">40 min walk · 6 min drive</span>
+    <span>10 Duke St, waterfront market &amp; tavern — parking caveat applies</span></div>
+  </div>
+  <div class="fc">
+    <h3>St. Elmo's Coffee Pub — Fairlington</h3><span class="price">$10.99</span>
+    <p class="deal">Same sandwich + chips + soda combo, at the Fairlington outpost.</p>
+    <div class="meta"><span class="chip dist">7 min drive</span>
+    <span>1536 Kenwood Ave — car territory</span></div>
+  </div>
+</div>
+
+<p class="kicker">Worth Knowing</p>
+<h2>Notes for the week</h2>
+<ul class="note-list">
+  <li><b>No dinner menu moonlights at lunch.</b> All 78 dinner-tier listings were checked individually —
+  none extends its $35/$45/$55 prix fixe to lunch service. If a favorite dinner spot is open at noon,
+  it's serving its regular menu.</li>
+  <li><b>Little Birdie's clock:</b> its $25 lunch runs weekdays only, so there are six shots at it —
+  today (Fri 8/14) and Mon 8/17 through Fri 8/21. Matt &amp; Tony's works all ten days.</li>
+  <li><b>5% back:</b> the ALX Open Rewards app earns 5% back on Restaurant Week purchases, redeemable
+  around town later.</li>
+  <li><b>Reservations:</b> irrelevant for the fast-casual track; for the two prix-fixe lunches neither menu
+  shows a reservation requirement, but Matt &amp; Tony's weekend brunch gets busy — book or go early.</li>
+</ul>
+
+<div class="appendix">
+  <p class="kicker" style="margin-top:24px">Appendix</p>
+  <h2>The lunch field at a glance</h2>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>Venue</th><th>Deal</th><th class="num">Price</th><th>Days</th><th class="num">Walk</th><th class="num">Drive</th></tr>
+    <tr><td>Little Birdie</td><td>3-course prix-fixe lunch</td><td class="num">$25</td><td>Mon–Fri, 11–4</td><td class="num">15 min</td><td class="num">4 min</td></tr>
+    <tr><td>Matt &amp; Tony's</td><td>Brunch or lunch prix fixe</td><td class="num">$35</td><td>Daily, 8–4:30</td><td class="num">14 min</td><td class="num">4 min</td></tr>
+    <tr><td>Junction Bakery &amp; Bistro</td><td>À la carte specials</td><td class="num">$5.50–16</td><td>Daily</td><td class="num">16 min</td><td class="num">4 min</td></tr>
+    <tr><td>St. Elmo's ×3 / Market 2 Market</td><td>Sandwich + chips + soda</td><td class="num">$10.99</td><td>Daily</td><td class="num">23–25 min</td><td class="num">4–7 min</td></tr>
+    <tr><td>Foster's Grille</td><td>Sandwich + side + drink</td><td class="num">$15.99</td><td>Daily</td><td class="num">27 min</td><td class="num">5 min</td></tr>
+    <tr><td>Cooper Mill</td><td>Salads</td><td class="num">$15</td><td>Daily</td><td class="num">40 min</td><td class="num">6 min</td></tr>
+    <tr><td>Union Sandwich Co.</td><td>Meal for two + wine bottle</td><td class="num">$50</td><td>Daily</td><td class="num">37 min</td><td class="num">5 min</td></tr>
+  </table>
+  </div>
+  <h2>Methodology</h2>
+  <p>Compiled August 14, 2026. The complete official roster (78 prix-fixe dinner listings + 10 fast-casual
+  listings) was pulled from Visit Alexandria's restaurant-week database and every listing was checked for a
+  lunch offering. The two prix-fixe lunch menus were transcribed from the venues' own posted menu graphics;
+  the eight fast-casual deals were transcribed page-by-page from Visit Alexandria's official Restaurant Week
+  menu book. Press coverage (ALXnow, Alexandria Living Magazine, The Zebra, and others) was swept and is
+  dinner-only, corroborating the count. Walk and drive times are routed estimates from home in Rosemont /
+  north Old Town via OpenStreetMap routing — not straight-line — so they account for the rail-crossing
+  detours. Opening hours for fast-casual venues are aggregator-sourced and not independently re-verified;
+  Foster's Grille and Union Sandwich Co. pages in the menu book carry no explicit dates, so the full
+  Aug 14–23 window is inferred from the rest of the book.</p>
+</div>
+</div>
+
+</body>
+</html>
