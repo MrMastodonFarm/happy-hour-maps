@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Week at Dinner — Alexandria, Aug 14–23, 2026</title>
+<style>
+  :root{
+    --paper:#fbfaf6; --card:#ffffff; --ink:#1d2534; --muted:#5b6474; --line:#dcd9cf;
+    --navy:#24406b; --navy-soft:#e8ecf3; --amber:#a8700f; --amber-deep:#8a5c0c; --amber-soft:#f5ead2;
+    --good:#2e6b45; --good-soft:#e2efe6; --warn:#8a5a17; --warn-soft:#f3e9d4;
+    --shadow:0 1px 3px rgba(29,37,52,.08),0 4px 14px rgba(29,37,52,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#151a24; --card:#1d2431; --ink:#e9e7de; --muted:#9aa3b2; --line:#323a49;
+      --navy:#8aa5cf; --navy-soft:#232f44; --amber:#d9a13f; --amber-deep:#e2b567; --amber-soft:#33301f;
+      --good:#7dbd94; --good-soft:#20301f; --warn:#d8b26a; --warn-soft:#33301f;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#151a24; --card:#1d2431; --ink:#e9e7de; --muted:#9aa3b2; --line:#323a49;
+    --navy:#8aa5cf; --navy-soft:#232f44; --amber:#d9a13f; --amber-deep:#e2b567; --amber-soft:#33301f;
+    --good:#7dbd94; --good-soft:#20301f; --warn:#d8b26a; --warn-soft:#33301f;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:880px;margin:0 auto;padding:36px 20px 72px;}
+  a{color:var(--navy);}
+  header.mast{border-bottom:3px double var(--line);padding-bottom:22px;margin-bottom:8px;}
+  .eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .eyebrow .docno{color:var(--amber);font-weight:700;}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(28px,4.5vw,42px);
+    line-height:1.12;margin:0 0 12px;text-wrap:balance;}
+  h1 em{font-style:normal;color:var(--amber);}
+  .dek{max-width:62ch;color:var(--muted);margin:0;}
+  .dek strong{color:var(--ink);}
+  h2{font-family:Georgia,"Times New Roman",serif;font-size:24px;margin:40px 0 6px;}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:36px 0 -30px;}
+  .lead-note{color:var(--muted);max-width:64ch;margin:0 0 20px;}
+  .menus{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+  .menu-card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    box-shadow:var(--shadow);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;}
+  .menu-card .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .menu-card h3{font-family:Georgia,serif;font-size:21px;margin:0;}
+  .price{font-family:Georgia,serif;font-size:24px;color:var(--amber);font-weight:700;white-space:nowrap;}
+  .when{font-weight:700;color:var(--navy);font-size:14px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{font-size:12px;font-weight:700;letter-spacing:.04em;padding:2px 9px;border-radius:99px;white-space:nowrap;}
+  .chip.dist{background:var(--navy-soft);color:var(--navy);}
+  .chip.verified{background:var(--good-soft);color:var(--good);text-transform:uppercase;letter-spacing:.08em;}
+  .chip.warn{background:var(--warn-soft);color:var(--warn);text-transform:uppercase;letter-spacing:.08em;}
+  .course{border-top:1px solid var(--line);padding-top:10px;}
+  .course b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+  .course p{margin:0;font-size:14.5px;}
+  .fineprint{font-size:13px;color:var(--muted);margin:0;border-top:1px solid var(--line);padding-top:10px;}
+  .addr{font-size:13px;color:var(--muted);}
+  .fc-list{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
+  .fc{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    padding:16px 20px;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline;}
+  .fc h3{font-family:Georgia,serif;font-size:17.5px;margin:0;}
+  .fc .price{font-size:19px;}
+  .fc .deal{grid-column:1/-1;margin:2px 0 0;font-size:14.5px;}
+  .fc .meta{grid-column:1/-1;display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);}
+  .note-list{margin:14px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:9px;max-width:68ch;}
+  .note-list li{padding-left:2px;}
+  .note-list b{color:var(--ink);}
+  .appendix{border-top:3px double var(--line);margin-top:44px;padding-top:8px;}
+  .appendix p{max-width:68ch;color:var(--muted);font-size:14px;}
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;}
+  .tbl-scroll{overflow-x:auto;}
+  th,td{text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  td.num{text-align:right;padding-right:24px;white-space:nowrap;}
+  th.num{text-align:right;padding-right:24px;}
+  @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth;} }
+
+  .cuisine{color:var(--navy);font-weight:700;}
+  .cav{grid-column:1/-1;font-size:13px;color:var(--warn);margin:2px 0 0;}
+  .links a{white-space:nowrap;}
+  .fc h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);}
+  .fc h3 a:hover{border-color:var(--amber);color:var(--amber);}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">
+    <span class="docno">ALX-26-RW02</span>
+    <span>A Neighborhood Field Guide</span>
+    <span>Compiled August 14, 2026</span>
+  </div>
+  <h1>Restaurant Week at <em>Dinner</em></h1>
+  <p class="dek">The main event: <strong>77 restaurants</strong>, prix-fixe dinners at
+  <strong>$35 / $45 / $55 per person</strong>, Friday Aug 14 – Sunday Aug 23 — full window, both
+  weekends, no excluded nights found anywhere. <strong>37 of the 77 are within the 27-minute walk
+  line from home</strong>; nothing else in the city is more than a 7-minute drive. Menus below were
+  read from each venue's own site or transcribed from Visit Alexandria's official
+  <a href="https://www.flipsnack.com/BCB58CCC5A8/final-alexandria-restaurant-week-2026-menu-book">76-page menu book</a>;
+  where a menu isn't published anywhere, it says so. Reservations are per-restaurant (OpenTable is
+  the norm), and the ALX Open Rewards app earns 5% back. Companion report:
+  <a href="../arw-lunch/">Restaurant Week at Lunch</a>.</p>
+</header>
+
+<p class="kicker">The Findings</p>
+<h2>The walkable 37 — nearest first</h2>
+<p class="lead-note">Every participant within the 27-minute line, with what's actually on its
+Restaurant Week menu. Names link to the venue's site; "listing" is the official Visit Alexandria page.</p>
+
+<div class="fc-list">
+  <div class="fc">
+    <h3><a href="http://www.LenasWoodFire.com">Lena's Wood-Fired Pizza &amp; Tap</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Wood-fired pizza &amp; Italian.</span> Three courses (app, entrée, dessert). Dish list isn't published — it's in the official menu book or ask on arrival.</p>
+    <p class="cav">Reserve via OpenTable.</p>
+    <div class="meta"><span class="chip dist">4 min walk · 1 min drive</span>
+    <span>401 E. Braddock Road</span><span class="links"><a href="http://www.LenasWoodFire.com">website</a> · <a href="https://visitalexandria.com/listings/lenas-wood-fired-pizza-tap-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.theloftatlenas.com/">The Loft at Lena's — Havana 151</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Cuban — upstairs at Lena's.</span> Three courses from the Havana-themed loft menu; dish list not published.</p>
+    <p class="cav">Reserve via OpenTable.</p>
+    <div class="meta"><span class="chip dist">4 min walk · 1 min drive</span>
+    <span>401 E. Braddock Road</span><span class="links"><a href="https://www.theloftatlenas.com/">website</a> · <a href="https://visitalexandria.com/listings/the-loft-at-lenas-havana-151-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.BastilleRestaurant.com">Bastille Brasserie &amp; Bar</a></h3><span class="price">$45 / $55</span>
+    <p class="deal"><span class="cuisine">French brasserie.</span> Three courses at two tiers. $45: bistro steak frites (+$7), grilled gambas, moules à la Provençale, chocolate profiterole. $55: filet mignon frites (+$10), grilled lamb chops (+$12), duck confit. Wine pairing +$35.</p>
+    <p class="cav">Dine-in only; closed Mondays (dinner Tue–Sun from 4).</p>
+    <div class="meta"><span class="chip dist">12 min walk · 2 min drive</span>
+    <span>606 N. Fayette Street</span><span class="links"><a href="http://www.BastilleRestaurant.com">website</a> · <a href="https://visitalexandria.com/listings/bastille-brasserie-bar-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.Mason-Social.com">Mason Social</a></h3><span class="price">$35*</span>
+    <p class="deal"><span class="cuisine">American gastropub.</span> Three courses: wings (five sauces), Rasta pasta with jerk chicken, honey-walnut salmon, 8-oz steak frites.</p>
+    <p class="cav">*Price conflict: the official listing says $35 but the menu-book page says $55 — call 703-548-8800 before you go.</p>
+    <div class="meta"><span class="chip dist">14 min walk · 2 min drive</span>
+    <span>728 N. Henry Street</span><span class="links"><a href="http://www.Mason-Social.com">website</a> · <a href="https://visitalexandria.com/listings/mason-social-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://mattandtonysva.com/">Matt &amp; Tony's</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">American all-day kitchen.</span> Listed at the $45 dinner tier, but no dinner menu is published anywhere — their Restaurant Week energy is clearly the $35 brunch/lunch (see the lunch report).</p>
+    <p class="cav">Call to confirm the dinner offer exists in practice.</p>
+    <div class="meta"><span class="chip dist">14 min walk · 2 min drive</span>
+    <span>1501 Mount Vernon Avenue</span><span class="links"><a href="https://mattandtonysva.com/">website</a> · <a href="https://visitalexandria.com/listings/matt-tonys-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.Theismanns.com/">Theismann's Restaurant &amp; Bar</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">New American / sports landmark.</span> Three courses: crispy calamari or beef-tenderloin bruschetta, blackened mahi-mahi or salmon, chicken schnitzel, chocolate mousse cake.</p>
+    
+    <div class="meta"><span class="chip dist">14 min walk · 4 min drive</span>
+    <span>1800 Diagonal Road</span><span class="links"><a href="http://www.Theismanns.com/">website</a> · <a href="https://visitalexandria.com/listings/theismanns-restaurant-bar-6/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.indochen.com/">Indochen</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Indian-Chinese fusion.</span> At the $35 tier; menu not published — in the book or call.</p>
+    
+    <div class="meta"><span class="chip dist">15 min walk · 2 min drive</span>
+    <span>1615 King Street</span><span class="links"><a href="https://www.indochen.com/">website</a> · <a href="https://visitalexandria.com/listings/indochen-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://checkout.square.site/merchant/D16J6WF77ADQD/checkout/GYOUERRMUTWJGRXEXOR4FUAO">Little Birdie</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">New American.</span> Three courses: tuna tartare, sesame chicken satay, trout à la plancha, seared swordfish, blondie sesame sundae. Caviar nug +$14.</p>
+    <p class="cav">Also runs the $25 Restaurant Week lunch (see the lunch report).</p>
+    <div class="meta"><span class="chip dist">15 min walk · 4 min drive</span>
+    <span>1504B Mount Vernon Ave.</span><span class="links"><a href="https://checkout.square.site/merchant/D16J6WF77ADQD/checkout/GYOUERRMUTWJGRXEXOR4FUAO">website</a> · <a href="https://visitalexandria.com/listings/little-birdie/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.namastejalsaa.com/">Namaste Jalsaa Restaurant &amp; Bar</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Indian &amp; Nepalese.</span> At the $45 tier; menu not published — in the book or call.</p>
+    
+    <div class="meta"><span class="chip dist">17 min walk · 3 min drive</span>
+    <span>1504 King Street</span><span class="links"><a href="http://www.namastejalsaa.com/">website</a> · <a href="https://visitalexandria.com/listings/namaste-jalsa-restaurant-bar-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.Laportas.net">Laporta's Restaurant</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Continental / New American.</span> Three courses: Pasta Laporta with Italian sausage, Virginia brook trout, seared pork schnitzel, Pearl's old-fashioned carrot cake.</p>
+    <p class="cav">No substitutions.</p>
+    <div class="meta"><span class="chip dist">18 min walk · 3 min drive</span>
+    <span>1600 Duke Street</span><span class="links"><a href="http://www.Laportas.net">website</a> · <a href="https://visitalexandria.com/listings/laportas-restaurant-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.paksoiiizakaya.com/">Pak Soii Izakaya &amp; Bar</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Japanese izakaya.</span> The most elaborate format in the program — five courses: soup + salad, cold app (zuke salmon yuzu truffles, hamachi jalapeño), two kushiyaki skewers, then hand rolls / signature roll / mini donburi (picanha), dessert. Beer or wine +$8, sake flight +$15.</p>
+    <p class="cav">One of three first-time participants.</p>
+    <div class="meta"><span class="chip dist">20 min walk · 3 min drive</span>
+    <span>1909 Mount Vernon Avenue</span><span class="links"><a href="https://www.paksoiiizakaya.com/">website</a> · <a href="https://visitalexandria.com/listings/pak-soii-izakaya-bar-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.RoyalRestaurantVA.com">Royal Restaurant</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Scratch-made American.</span> Three courses: watermelon carpaccio, diavolo mussels, honey-garlic glazed salmon, honey-bourbon pork chop, choco tacos.</p>
+    
+    <div class="meta"><span class="chip dist">20 min walk · 3 min drive</span>
+    <span>730 N. Saint Asaph Street</span><span class="links"><a href="http://www.RoyalRestaurantVA.com">website</a> · <a href="https://visitalexandria.com/listings/royal-restaurant-4/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.EveningStarCafe.net">Evening Star Cafe</a></h3><span class="price">$40*</span>
+    <p class="deal"><span class="cuisine">New American.</span> Three courses: smoked wings, Southern fried catfish, blackened salmon, jambalaya risotto, or the Star Burger; carrot cake +$11.</p>
+    <p class="cav">*Their own menu PDF says $40 even though the program lists $45 — the venue's number is probably the one the check shows.</p>
+    <div class="meta"><span class="chip dist">21 min walk · 3 min drive</span>
+    <span>2000 Mount Vernon Avenue</span><span class="links"><a href="http://www.EveningStarCafe.net">website</a> · <a href="https://visitalexandria.com/listings/evening-star-cafe-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.oldhousecosmopolitan.com/">Old House Cosmopolitan Grill</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">German &amp; Bosnian.</span> Three courses: ćevapi, cordon bleu, Holsteiner pork schnitzel, grilled fish of the day, palačinke crepes.</p>
+    
+    <div class="meta"><span class="chip dist">21 min walk · 3 min drive</span>
+    <span>1024 Cameron Street</span><span class="links"><a href="https://www.oldhousecosmopolitan.com/">website</a> · <a href="https://visitalexandria.com/listings/old-house-cosmopolitan-grill-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://alxhgr.com/">Sweet Fire Donna's</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Carolina BBQ.</span> Not courses — "The BBQ Spread": ¼ lb each pulled pork, pulled chicken, and sliced brisket, a 2-bone rib slab, three sides, cornbread, and dessert (key lime pie, bread pudding, or cookie).</p>
+    <p class="cav">No substitutions.</p>
+    <div class="meta"><span class="chip dist">21 min walk · 4 min drive</span>
+    <span>510 John Carlyle Street</span><span class="links"><a href="https://alxhgr.com/">website</a> · <a href="https://visitalexandria.com/listings/sweet-fire-donnas-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.TrademarkALX.com">Trademark — An American Brasserie</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">American brasserie.</span> Three courses: hot-honey cider chicken wings, chicken pot pie, Virginia cider pork chop, asparagus-gruyère ravioli, sticky toffee pudding.</p>
+    
+    <div class="meta"><span class="chip dist">21 min walk · 4 min drive</span>
+    <span>2080 Jamieson Avenue</span><span class="links"><a href="http://www.TrademarkALX.com">website</a> · <a href="https://visitalexandria.com/listings/trademark-an-american-brasserie-4/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.vasosonking.com/">Vaso's Mediterranean Bistro</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Mediterranean.</span> Appetizer + included house salad + entrée: spanakotiropita, mozzarella caprese, lobster ravioli, eggplant parmesan, tilapia Livornese.</p>
+    
+    <div class="meta"><span class="chip dist">21 min walk · 3 min drive</span>
+    <span>1118 King Street</span><span class="links"><a href="http://www.vasosonking.com/">website</a> · <a href="https://visitalexandria.com/listings/vasos-mediterranean-bistro-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.VermilionRestaurant.com">Vermilion</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Farm-to-table New American.</span> Three courses: crispy Chesapeake oysters "H.L.T.", cornmeal-fried blue catfish, slow-cooked beef short rib; bison strip loin +$10, Betties buns +$12; wine pairing +$30.</p>
+    <p class="cav">Reserve via OpenTable.</p>
+    <div class="meta"><span class="chip dist">21 min walk · 4 min drive</span>
+    <span>1120 King Street</span><span class="links"><a href="http://www.VermilionRestaurant.com">website</a> · <a href="https://visitalexandria.com/listings/vermilion-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.eataugies.com/">Augie's Mussel House</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Mussels &amp; seafood.</span> Three courses: chicken-pot-pie empanada, spicy n'duja prawn linguini, hanger steak &amp; frites, warm apple tart.</p>
+    <p class="cav">Dinner service from 5 PM.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 3 min drive</span>
+    <span>1106 King Street</span><span class="links"><a href="https://www.eataugies.com/">website</a> · <a href="https://visitalexandria.com/listings/augies-mussel-house-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.DelRayCafe.com">Del Ray Cafe</a></h3><span class="price">$45 / $55</span>
+    <p class="deal"><span class="cuisine">French bistro.</span> Two courses for $45 or three for $55: Burgundy snails, foie gras on brioche (+$20), coq au vin, Black Angus hanger steak (+$12), chouquettes.</p>
+    <p class="cav">Eat-in or carry-out; no substitutions; crème brûlée dine-in only.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 3 min drive</span>
+    <span>205 E. Howell Avenue</span><span class="links"><a href="https://www.delraycafe.com/alx-restaurant-week/">RW menu</a> · <a href="http://www.DelRayCafe.com">website</a> · <a href="https://visitalexandria.com/listings/del-ray-cafe-9/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://hanksoysterbar.com/old-town/">Hank's Oyster Bar</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Oyster bar.</span> Three courses: half-dozen Salty Wolfe oysters, fried Goose Point oysters, New England lobster roll (+$7), steak frites (+$12), crab cake dinner (+$9).</p>
+    
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>818 N. Saint Asaph Street</span><span class="links"><a href="https://hanksoysterbar.com/old-town/">website</a> · <a href="https://visitalexandria.com/listings/hanks-oyster-bar/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://hankspastabar.com/">Hank's Pasta Bar</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Italian.</span> Shared antipasti platter for the table (included), then salad, pasta, dessert: bucatini amatriciana, rigatoni Bolognese, mafalde with fennel sausage &amp; Calabrian chili.</p>
+    <p class="cav">One of the best formats at the $35 tier.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>600 Montgomery Street</span><span class="links"><a href="https://hankspastabar.com/">website</a> · <a href="https://visitalexandria.com/listings/hanks-pasta-bar-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://laplumacoffeewine.com/">LaPluma Coffee &amp; Wine Bar</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Guatemalan.</span> Three courses: queso fundido, beef garnachas, asado Chapín (grilled steak, plantains, refried beans, chimol), tres leches cake.</p>
+    <p class="cav">Tax &amp; fees not included.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>1000 Cameron Street</span><span class="links"><a href="https://laplumacoffeewine.com/">website</a> · <a href="https://visitalexandria.com/listings/lapluma-coffee-wine-bar-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.TJStones.com">T.J. Stone's Grill House &amp; Tap Room</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">American gastropub.</span> Two courses: bacon-Boursin potato skins or chilled cucumber gazpacho, then summer fish fry, New Orleans gumbo, or half-rack Texas BBQ ribs. Optional cocktail +$10.</p>
+    <p class="cav">5–10 PM; dine-in, takeout, or delivery.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>608 Montgomery Street</span><span class="links"><a href="http://www.TJStones.com">website</a> · <a href="https://visitalexandria.com/listings/t-j-stones-grill-house-tap-room-5/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://alxhgr.com/">Tequila &amp; Taco</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Tex-Mex.</span> Four courses and a drink is included: rocks/frozen margarita or mocktail, queso-salsa-guac trio, fajitas or any three tacos, tres leches or key lime pie.</p>
+    <p class="cav">The only menu in the program that includes a margarita.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>540 John Carlyle Street</span><span class="links"><a href="https://alxhgr.com/">website</a> · <a href="https://visitalexandria.com/listings/tequila-taco-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://thompsonitalian.com/">Thompson Italian</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">Italian.</span> Three courses: corn arancini with parmesan fonduta, summer squash carpaccio with smoked feta, rigatoni Bolognese, branzino with shishito panzanella, olive oil cake.</p>
+    <p class="cav">No upcharges on anything.</p>
+    <div class="meta"><span class="chip dist">22 min walk · 4 min drive</span>
+    <span>1024 King Street</span><span class="links"><a href="https://thompsonitalian.com/">website</a> · <a href="https://visitalexandria.com/listings/thompson-italian-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://vasos-kitchen.com/">Vaso's Kitchen</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Greek, family-run.</span> Three courses: avgolemono soup or Greek salad, chicken Philippo (scallopini with ham, eggplant, provolone, kalamata), flounder with lemon-caper butter, baklava.</p>
+    <p class="cav">Don't confuse with Vaso's Mediterranean Bistro on King St ($55).</p>
+    <div class="meta"><span class="chip dist">24 min walk · 5 min drive</span>
+    <span>1225 Powhatan Street</span><span class="links"><a href="https://vasos-kitchen.com/">website</a> · <a href="https://visitalexandria.com/listings/vasos-kitchen-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.TavernaCretekou.com">Taverna Cretekou</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Greek taverna.</span> Three courses: dolmadakia, then soutzoukakia (Greek meatballs), dolmades avgolemono, or spanakotiropita — entrées come with lemon potatoes and vegetables — galaktoboureko to finish.</p>
+    
+    <div class="meta"><span class="chip dist">25 min walk · 4 min drive</span>
+    <span>818 King Street</span><span class="links"><a href="http://www.TavernaCretekou.com">website</a> · <a href="https://visitalexandria.com/listings/taverna-cretekou-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.TheMajesticVA.com">The Majestic by Chef Santiago Lopez</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">New American.</span> At the $55 tier; no Restaurant Week menu is published anywhere — reopened April 2026 under chef Santiago Lopez.</p>
+    <p class="cav">Call 703-837-9117 for the menu.</p>
+    <div class="meta"><span class="chip dist">25 min walk · 4 min drive</span>
+    <span>911 King Street</span><span class="links"><a href="http://www.TheMajesticVA.com">website</a> · <a href="https://visitalexandria.com/listings/the-majestic-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.HolyCowDelRay.com/">Holy Cow</a></h3><span class="price">$35 for two</span>
+    <p class="deal"><span class="cuisine">Burgers.</span> The roster's mystery listing, solved: "The Summer Stack" — a flat $35 for two sandwiches + two hand-cut fries (Sacre Bleu with brie &amp; truffle honey, OMG fried chicken, Hot Mess burger, turkey Reuben, quinoa veggie burger).</p>
+    <p class="cav">Modifications subject to upcharge. Effectively $17.50 a head — the cheapest date in the program.</p>
+    <div class="meta"><span class="chip dist">26 min walk · 4 min drive</span>
+    <span>2312 Mount Vernon Avenue</span><span class="links"><a href="http://www.HolyCowDelRay.com/">website</a> · <a href="https://visitalexandria.com/listings/holy-cow-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://alxhgr.com/">Pork Barrel BBQ</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">BBQ.</span> "The Omnibus Platter": ¼ lb pulled pork, ¼ lb pulled chicken, a 4-bone rib slab, two sides, cornbread — and your choice of dessert or two PBR tallboys.</p>
+    <p class="cav">No substitutions; dine-in or carry-out.</p>
+    <div class="meta"><span class="chip dist">26 min walk · 4 min drive</span>
+    <span>2312 Mount Vernon Avenue</span><span class="links"><a href="https://alxhgr.com/">website</a> · <a href="https://visitalexandria.com/listings/pork-barrel-bbq-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.Cheesetique.com">Cheesetique</a></h3><span class="price">$45</span>
+    <p class="deal"><span class="cuisine">Cheese-forward New American.</span> Three courses: cheeseboard for one, stone-fruit caprese with burrata, summer shrimp bowl, black truffle gnocchi; short ribs +$9, salmon +$7; key lime or ube cheesecake.</p>
+    <p class="cav">Served at lunch AND dinner, and they run it through Aug 30 — a week past everyone else.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 4 min drive</span>
+    <span>2411 Mount Vernon Avenue</span><span class="links"><a href="https://www.cheesetique.com/restaurant-week/">RW menu</a> · <a href="http://www.Cheesetique.com">website</a> · <a href="https://visitalexandria.com/listings/cheesetique-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.MurphysPub.com/Murphys/Alexandria/">Murphy's Irish Pub</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Irish pub.</span> At the $35 tier; no Restaurant Week menu published — expect the classics (Irish stew, corned beef, fish &amp; chips) but call to confirm.</p>
+    
+    <div class="meta"><span class="chip dist">27 min walk · 4 min drive</span>
+    <span>713 King Street</span><span class="links"><a href="http://www.MurphysPub.com/Murphys/Alexandria/">website</a> · <a href="https://visitalexandria.com/listings/murphys-irish-pub-4/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://www.pieceoutdelray.com/">Piece Out</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Pizza.</span> At the $35 tier; no Restaurant Week menu found — their site only shows a separate $49 Wednesday dinner-for-two.</p>
+    <p class="cav">Call before making the trip.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 4 min drive</span>
+    <span>2419 Mount Vernon Avenue</span><span class="links"><a href="https://www.pieceoutdelray.com/">website</a> · <a href="https://visitalexandria.com/listings/piece-out/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.RusticoRestaurant.com">Rustico Restaurant</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Pizza &amp; American, big beer list.</span> Three courses: fried calamari, wings, or crispy Brussels sprouts; then Rustico burger, pan-seared trout, grilled bavette steak &amp; fries, or ricotta gnocchi alla vodka; cheesecake, brownie sundae, or donuts.</p>
+    <p class="cav">Also runs a $25 three-course lunch AND weekend brunch (see the lunch report) — the only place doing all three meals.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 5 min drive</span>
+    <span>827 Slaters Lane</span><span class="links"><a href="https://www.rusticorestaurant.com/_files/ugd/ea7e5d_5690a06a32db4a7a943e67c3cafc7830.pdf">RW menu</a> · <a href="http://www.RusticoRestaurant.com">website</a> · <a href="https://visitalexandria.com/listings/rustico-restaurant-3/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="http://www.ThePitaHouse.com">The Pita House</a></h3><span class="price">$35</span>
+    <p class="deal"><span class="cuisine">Lebanese.</span> At the $35 tier; participation is on their homepage banner but the menu isn't posted.</p>
+    <p class="cav">Call 703-684-9194.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 4 min drive</span>
+    <span>719 King Street</span><span class="links"><a href="http://www.ThePitaHouse.com">website</a> · <a href="https://visitalexandria.com/listings/the-pita-house-2/">listing</a></span></div>
+  </div>
+  <div class="fc">
+    <h3><a href="https://morrisonhouse.com/restaurants/the-study/">The Study</a></h3><span class="price">$55</span>
+    <p class="deal"><span class="cuisine">New American / Mesoamerican, at Morrison House.</span> Three courses: tuna tostada, octopus tostada, kalbi tacos, pork birria; bistec +$39; tres leches.</p>
+    <p class="cav">All guests in the party must order the prix fixe. Their page header still shows winter dates — confirm when booking.</p>
+    <div class="meta"><span class="chip dist">27 min walk · 4 min drive</span>
+    <span>116 S. Alfred Street</span><span class="links"><a href="https://morrisonhouse.com/restaurants/the-study/">RW menu</a> · <a href="https://morrisonhouse.com/restaurants/the-study/">website</a> · <a href="https://visitalexandria.com/listings/the-study-8/">listing</a></span></div>
+  </div>
+</div>
+
+<p class="kicker">The Rest of the Field</p>
+<h2>Forty more, a short drive away</h2>
+<p class="lead-note">Everything beyond the walk line, sorted by drive time. All are 4–7 minutes by
+car except Mount Vernon Inn (20 minutes, at the estate itself — a $35 <em>two</em>-course dinner in
+the candlelit, murals-and-period-costume dining room; the cheapest tier in the whole program and the
+only participant outside the city). Menus for these are in the
+<a href="https://www.flipsnack.com/BCB58CCC5A8/final-alexandria-restaurant-week-2026-menu-book">official menu book</a>.</p>
+<div class="tbl-scroll">
+<table>
+  <tr><th>Venue</th><th class="num">Tier</th><th>What it is</th><th>Address</th><th class="num">Drive</th></tr>
+    <tr><td><a href="https://www.spicekraftva.com/">Spice Kraft Indian Bistro</a></td><td class="num">$35</td><td>Spice Kraft is an Indian Bistro with a menu that explores progressive ideas in Indian</td><td>2607 Mount Vernon Avenue</td><td class="num">4 min</td></tr>
+    <tr><td><a href="https://www.sake-japanese-steakhouse.com/locations">Sake Japanese Steakhouse Alexandria</a></td><td class="num">$35</td><td>Experience the best of Japanese hibachi, sushi, and bar in town. Indulge in the finest</td><td>2016 Eisenhower Avenue</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://www.josephineoldtown.com/">Josephine Brasserie &amp; Bar</a></td><td class="num">$55</td><td>Welcome to Josephine, a French inspired brasserie and bar located in the heart of Old</td><td>109 S. Saint Asaph Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://heronalexandria.com/dine/kiln/">Kiln</a></td><td class="num">$55</td><td>Hotel Heron’s signature restaurant Kiln offers a remarkable opportunity to savor, both beloved classics,…</td><td>699 Prince Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.elaines-restaurant.com/">Elaine's</a></td><td class="num">$55</td><td>Elaine’s offers modern Mediterranean food and semi-fine dining in the heart of Old Town. Elaine’s</td><td>208 Queen Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://julasotp.com/">Jula's on the Potomac</a></td><td class="num">$55</td><td>Best known for its spectacular panoramic views, Jula’s on the Potomac is one of the</td><td>44 Canal Center Plaza Suite 401</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://www.kingandrye.com/">King &amp; Rye</a></td><td class="num">$45</td><td>Located in the heart of Old Town Alexandria near the waterfront on King Street, King</td><td>480 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://1799prime.com/promotions/">1799 Prime Steak &amp; Seafood</a></td><td class="num">$55</td><td>1799 Prime Steak &amp; Seafood is a polished modern steakhouse featuring prime steaks, fresh seafood,</td><td>110 S. Pitt Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.219Restaurant.com">219 Restaurant</a></td><td class="num">$55</td><td>219 Restaurant is located in an elegant Victorian setting, serving modern Southern cuisine. The Basin</td><td>219 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.kissoasianbistro.com/">Kisso Asian Bistro</a></td><td class="num">$35</td><td>Kisso Asian Bistro is a casual eatery offering a menu of Asian dishes plus a</td><td>300 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://bollywoodmasalaalexandria.com/">Bollywood Masala</a></td><td class="num">$35</td><td>Bollywood Masala serves authentic Indian cuisine, where home blend of spices adds many layers and</td><td>211 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.WarehouseOldTown.com">The Warehouse</a></td><td class="num">$55</td><td>Located in the heart of Old Town Alexandria, The Warehouse is one of the area’s</td><td>214 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.BugsysPizza.com">Bugsy's Pizza Restaurant &amp; Sports Bar</a></td><td class="num">$35</td><td>Home of Alexandria’s favorite pizza and original sports bar, Bugsy’s takes great pride in being</td><td>111 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.IlPortoRistorante.com">Il Porto</a></td><td class="num">$55</td><td>Every dish at Il Porto Italian Ristorante is made from scratch, all fresh, every day,</td><td>121 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://wharfrestaurant.com/">The Wharf Fine Seafood</a></td><td class="num">$55</td><td>“Fine Seafood, Historic Setting!” One block from the waterfront in the heart of Historic Old</td><td>119 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://www.blackwallhitchalexandria.com/">Blackwall Hitch</a></td><td class="num">$55</td><td>A dining experience blending the area’s finest in tastes and talents, Blackwall Hitch is a</td><td>5 Cameron Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://MiasItalian.com/">Mia's Italian Kitchen</a></td><td class="num">$45</td><td>Mia’s Italian Kitchen is rooted in family. The inspiration came from one of the owner’s</td><td>100 King Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://www.umiyasushiva.com/">Umiya Sushi</a></td><td class="num">$55</td><td>Umiya Sushi offers an elevated Japanese dining experience in Alexandria, featuring fresh sushi, premium…</td><td>3000 Duke Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="http://www.VolasDockside.com/">Vola's Dockside Grill and Hi-Tide Lounge</a></td><td class="num">$55</td><td>Named after Vola Lawson, a much-loved and iconic civil leader in Alexandria. Vola’s Dockside Grill</td><td>101 N. Union Street</td><td class="num">5 min</td></tr>
+    <tr><td><a href="https://rusuz.com/">Rus Uz - Alexandria</a></td><td class="num">$55</td><td>Rus Uz is a family-owned fine dining Russian and Uzbek restaurant, an inspired blend of</td><td>210 Swamp Fox Road</td><td class="num">6 min</td></tr>
+    <tr><td><a href="http://www.TedsMontanaGrill.com">Ted's Montana Grill</a></td><td class="num">$55</td><td>Ted’s Montana Grill is known for its authentic American cuisine featuring award-winning burgers, steaks and</td><td>2451 Eisenhower Avenue</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://dokkhao.com/dok-khao-oakville-home/">Dok Khao</a></td><td class="num">$45</td><td>Dok Khao Thai Eatery brings a modern approach to Thai dining in the heart of</td><td>2514 Richmond Hwy</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://www.wearefoundingfarmers.com/location/alexandria/">Founding Farmers Alexandria</a></td><td class="num">$45</td><td>Founding Farmers Alexandria is a farmer-owned restaurant serving scratch-made, American food and drink.…</td><td>461 Swann Avenue</td><td class="num">6 min</td></tr>
+    <tr><td><a href="http://www.DanielOConnells.com">Daniel O'Connell's Irish Restaurant &amp; Pub</a></td><td class="num">$35</td><td>Daniel O’Connell’s Irish Restaurant and Pub is a modern Irish restaurant in an ancient</td><td>112 King Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://www.urbano116.com/">Urbano 116</a></td><td class="num">$35</td><td>Urbano 116 embraces the traditional Mexican food experience with a menu full of authentic ingredients</td><td>116 King Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="http://www.UnionStreetPublicHouse.com">Union Street Public House</a></td><td class="num">$35</td><td>Union Street Public House, an established tradition in Old Town, opened in 1986 in a</td><td>121 S. Union Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://frankiesoldtown.com/?fbclid=IwZXh0bgNhZW0CMTAAAR1rUahyWVjLHSwEnxVYFBPDpsAG7EsQfzG1JnnyvoMJh8eOwzsa-55axG0_aem_K38hZTtshT06Jm7yl0evyg">Frankie's Kitchen &amp; Cocktail Bar</a></td><td class="num">$35</td><td>Pizza. Cocktails. Good Vibes. Nestled in the South end of Old Town, this hidden gem</td><td>823 S. Washington Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://www.HummingbirdVA.net/">Hummingbird</a></td><td class="num">$55</td><td>HUMMINGBIRD’s menu follows the rhythm of the seasons and celebrates the Seafood Pride of favorite</td><td>220 S. Union Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://pepespizzeria.com/store/frank-pepes-alexandria">Frank Pepe Pizzeria Napoletana</a></td><td class="num">$35</td><td>At Frank Pepe Pizzeria Napoletana of Alexandria, we proudly carry the legacy of our esteemed</td><td>3231 Duke Street</td><td class="num">6 min</td></tr>
+    <tr><td><a href="https://www.northside10.com/">Northside 10</a></td><td class="num">$45</td><td>Northside 10 has become a Del Ray/Arlandria neighborhood staple for family gatherings, romantic dinners, Happy</td><td>10 E. Glebe Road</td><td class="num">6 min</td></tr>
+    <tr><td><a href="http://www.DeliasBrickOvenPizza.com">Delia's</a></td><td class="num">$45</td><td>Delia’s features Mediterranean inspired cuisine, award winning brick oven pizza and a full bar serving</td><td>209 Hoffman Street</td><td class="num">7 min</td></tr>
+    <tr><td><a href="http://www.Southside815.com">Southside 815</a></td><td class="num">$35</td><td>If your favorite neighborhood bar also is one of the best restaurants in town, you’ve</td><td>815 S. Washington Street</td><td class="num">7 min</td></tr>
+    <tr><td><a href="https://www.aldositaliankitchen.com/">Aldo's Italian Kitchen</a></td><td class="num">$45</td><td>Unassuming hideaway serving pizza and homestyle Italian plates in cheery surrounds, Aldo’s Italian Kitchen…</td><td>2850 Eisenhower Avenue</td><td class="num">7 min</td></tr>
+    <tr><td><a href="http://www.RTsRestaurant.net">RT's Restaurant</a></td><td class="num">$35</td><td>RT’s Restaurant is Alexandria’s renowned neighborhood restaurant for over 31 years, featuring fresh…</td><td>3804 Mount Vernon Avenue</td><td class="num">7 min</td></tr>
+    <tr><td><a href="http://www.CafePizzaiolo.com">Cafe Pizzaiolo</a></td><td class="num">$35</td><td>Cafe Pizzaiolo serves comforting, tasty Italian food made with high quality and healthy ingredients in</td><td>1623 Fern Street</td><td class="num">7 min</td></tr>
+    <tr><td><a href="http://www.RampartsTavern.com">Ramparts Tavern &amp; Grill</a></td><td class="num">$35</td><td>Originally named the Cole Bin, in 1978 Ramparts Tavern became the new neighborhood watering hole</td><td>1700 Fern Street</td><td class="num">7 min</td></tr>
+    <tr><td><a href="http://www.DishesOfIndia.com">Dishes of India</a></td><td class="num">$35</td><td>Dishes of India is considered by many to be some of the best Indian dining in</td><td>1510 Belle-View Boulevard</td><td class="num">10 min</td></tr>
+    <tr><td><a href="http://www.FatCityKitchen.com">City Kitchen</a></td><td class="num">$35</td><td>Located in the west end of Alexandria, City Kitchen brings a fresh interpretation to American</td><td>330 S. Pickett Street</td><td class="num">12 min</td></tr>
+    <tr><td><a href="https://www.tasteofasia-alexandria.com">Taste of Asia</a></td><td class="num">$35</td><td>Taste of Asia brings to the West End Alexandria area a wide variety of exquisite</td><td>362 S. Pickett Street</td><td class="num">12 min</td></tr>
+    <tr><td><a href="http://www.MountVernon.org/Inn/">Mount Vernon Inn</a></td><td class="num">$35</td><td>Savor the flavors of early America, just 15 miles from Washington, D.C. The first president hosted</td><td>3200 Mount Vernon Memorial Highway Mount Vernon, VA 22121</td><td class="num">20 min</td></tr>
+</table>
+</div>
+
+<p class="kicker">Worth Knowing</p>
+<h2>Notes for the week</h2>
+<ul class="note-list">
+  <li><b>No press picks exist yet</b> — no outlet has published "best of" choices for this edition.
+  ALXnow's announcement spotlights three first-time participants: <b>Umiya Sushi</b>,
+  <b>Pak Soii</b>, and <b>Dok Khao</b>.</li>
+  <li><b>Formats worth knowing:</b> Pak Soii runs a five-course izakaya progression; Tequila &amp; Taco is
+  the only menu that includes a drink (a margarita); Hank's Pasta Bar starts with a free shared antipasti
+  platter; Sweet Fire Donna's and Pork Barrel BBQ do big platters instead of courses; Holy Cow's
+  "$35 Summer Stack" feeds two.</li>
+  <li><b>Price flags:</b> Mason Social is listed at $35 but its menu-book page says $55 — call first.
+  Evening Star's own menu says $40 against a listed $45. Both flagged in their entries above.</li>
+  <li><b>Best deal in the field</b> (subjective but defensible): Holy Cow at ~$17.50/head, Hank's Pasta
+  Bar's four-part $35, and Rustico covering dinner <em>and</em> a $25 lunch/brunch. At the top end,
+  Bastille's $55 tier (lamb chops, duck confit) and Pak Soii's five courses read like the most food
+  for the money.</li>
+  <li><b>Cheesetique keeps going through Aug 30</b> — a week past the official end, at lunch and dinner both.</li>
+  <li><b>Book now for weekend nights</b> — reservations are per-restaurant, mostly OpenTable, and the
+  press's one consistent warning is that popular rooms fill first.</li>
+</ul>
+
+<div class="appendix">
+  <p class="kicker" style="margin-top:24px">Appendix</p>
+  <h2>Methodology</h2>
+  <p>Compiled August 14, 2026. The complete official roster was pulled from Visit Alexandria's
+  restaurant-week database (77 dinner participants after removing duplicates). All 77 were geocoded and
+  routed from home in Rosemont / north Old Town via OpenStreetMap walking and driving routers — real
+  routes, not straight lines. For the 37 walkable venues, the actual Restaurant Week menu was hunted
+  down on the venue's own site or transcribed from the official menu book; nine venues (Lena's and its
+  Loft, Matt &amp; Tony's, Indochen, Namaste Jalsaa, The Majestic, Murphy's, Piece Out, The Pita House)
+  publish no dish list anywhere and are marked accordingly. Two price discrepancies between the official
+  listing and other sources are flagged inline rather than silently resolved. Press (ALXnow, Alexandria
+  Living, Washingtonian, NoVA Magazine, The Zebra, Eater DC) was swept for picks and program mechanics.
+  Companion report: <a href="../arw-lunch/">Restaurant Week at Lunch</a> · the happy-hour map of the same
+  neighborhood: <a href="../maps/alexandria/">Happy Hour Within a 27-Minute Walk of Home</a>.</p>
+</div>
+</div>
+</body>
+</html>
