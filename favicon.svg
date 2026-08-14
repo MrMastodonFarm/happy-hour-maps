@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Happy Hour Maps">
+  <rect width="64" height="64" rx="12" fill="#24406b"/>
+  <!-- martini glass, in the site amber -->
+  <g fill="#d9a13f">
+    <path d="M11 15h42L34.5 34.5v13H44a3 3 0 0 1 0 6H20a3 3 0 0 1 0-6h9.5v-13z"/>
+  </g>
+  <!-- olive on a pick -->
+  <path d="M40 12.5 30.5 24" stroke="#fbfaf6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <circle cx="29" cy="25.5" r="4.5" fill="#2e6b45" stroke="#fbfaf6" stroke-width="1.5"/>
+</svg>
