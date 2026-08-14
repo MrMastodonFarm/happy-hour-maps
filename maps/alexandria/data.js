@@ -81,7 +81,7 @@ window.DATA = {
       win: [{ d: [1,2,3,4,5], s: 15, e: 19 }] },
     { n: "Bastille Brasserie & Bar", lat: 38.8115998, lng: -77.0513738, walk: 12, addr: "606 N Fayette St",
       when: "Tue–Sat 4–6:30 PM · plus ALL NIGHT Wed & Sun 4–9 PM · bar & café only",
-      deals: "House Martini $9 every day; “specially priced” beer, wine & cocktails (itemized prices no longer posted). Tue 30% off wine bottles; Thu Burger Classique + glass of House Bordeaux $7.",
+      deals: "“Specially priced” beer, wine & cocktails plus house martinis $9 (billed as “every day,” listed under the happy-hour section; other prices no longer itemized). Tue 30% off wine bottles; Thu buy the Burger Classique, get a glass of House Bordeaux for $7.",
       vibe: "Award-winning chef-owned French brasserie with a garden patio.",
       note: "Days/times re-verified Aug 14; the priced menu ($5 drafts, $22 half-dozen oysters in July) is no longer published.",
       v: true, url: "https://www.bastillerestaurant.com/menus-events/weeklyevents", link: "bastillerestaurant.com",
