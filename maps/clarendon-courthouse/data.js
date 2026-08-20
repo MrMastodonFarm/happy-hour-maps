@@ -38,6 +38,11 @@
      - Faccia Luna → Alto Fumo (2909 Wilson) — Alto Fumo closed by mid-2026.
      - Bayou Bakery — open but closes 5 PM daily now; its old 5–9 HH listings
        are defunct.
+   Instagram handles for re-verification (swept 2026-08-19 via the user's
+   logged-in Chrome session; several differ from the obvious guess):
+     @spiderkellys, @misterdaysva, @bigtonypizza_divebar, @therenegadeva,
+     @barbao_ (FB: facebook.com/barbaova), @nettiestavern, @ragtimerestaurant,
+     @fireworkspizzaarlington, @dontitova.
    --------------------------------------------------------------------------- */
 window.DATA = {
   meta: {
@@ -48,8 +53,8 @@ window.DATA = {
          'in Arlington, from the Court House Metro up to the heart of Clarendon. The neighborhood turned ' +
          'over hard in 2025–26 — Wilson Hardware is now <strong>The Boulevard + Solset</strong>, the old ' +
          'Whitlow’s is <strong>Nettie’s Tavern + BOE</strong>, and Rhodeside Grill and Il Radicchio are gone — ' +
-         'so every spot below was checked against live sources this week. Twenty were confirmed on the ' +
-         'venue’s own menu; the rest are real but rest on aggregator listings or unposted details, flagged ' +
+         'so every spot below was checked against live sources this week. Twenty-three were confirmed on the ' +
+         'venue’s own menu or social posts; the rest are real but rest on aggregator listings or unposted details, flagged ' +
          '<strong>“check ahead.”</strong> Walk times are from Clarendon Metro; the Courthouse cluster is ' +
          'steps from Court House Metro. Pin numbers match the list.',
     tz: "America/New_York",
@@ -92,8 +97,11 @@ window.DATA = {
       '<h3>Methodology</h3>' +
       '<p>Compiled August 19, 2026 from three sweeps: Clarendon venues, Courthouse venues, and the local press ' +
       '(ARLnow, Arlington Magazine, Northern Virginia Magazine, StayArlington) for openings, closures and rebrands. ' +
-      '“Verified” means the venue’s own website, menu page, or menu PDF was opened that day and the happy hour ' +
-      'confirmed on it. “Check ahead” means the venue is open and a happy hour is claimed, but the details come ' +
+      '“Verified” means the venue’s own website, menu page, menu PDF, or official Instagram/Facebook post was ' +
+      'opened that day and the happy hour confirmed on it — the check-ahead venues got a second pass through ' +
+      'their own social accounts, which verified three more spots (Big Tony’s 2026 flyer, The Renegade’s bio, ' +
+      'Nettie’s May 2026 relaunch) and corroborated others. “Check ahead” means the venue is open and a happy ' +
+      'hour is claimed, but the details come ' +
       'from an aggregator, sources conflict, or the venue posts no specifics — call before counting on it. ' +
       'Coordinates are geocoded from street addresses (accurate to the address, not the exact door); walk times ' +
       'are real walking-route estimates from the Clarendon Metro entrance via OpenStreetMap routing. Several spots ' +
@@ -115,40 +123,43 @@ window.DATA = {
       v: true, url: "https://www.clarendonballroomva.com/rooftop/", link: "clarendonballroomva.com",
       win: [{ d: [4,5], s: 17, e: 19 }] },
     { n: "Spider Kelly's", lat: 38.8866350, lng: -77.0966338, walk: 2, addr: "3181 Wilson Blvd",
-      when: "Aggregators say Mon–Fri 4–7 PM — not posted by the venue",
-      deals: "Claimed: $4 beers, $5 wine & rail drinks, $12 domestic buckets, $6 appetizers. Their own site posts no happy-hour info (and its menus are years old) — call 703-312-8888.",
+      when: "Till 7 PM per their own Instagram — start time unposted (aggregators say 4)",
+      deals: "Venue-posted on Instagram this summer: $6 select appetizers and $1 wings during happy hour. Aggregators add $4 beers, $5 wine & rails, $12 domestic buckets. Call 703-312-8888 for the start time.",
       vibe: "8,000 sq ft sports bar / rec room — 31 TVs, pool, shuffleboard, darts.",
+      note: "Multiple June–July 2026 posts on @spiderkellys confirm a live happy hour running till 7; their website posts nothing.",
       v: false, url: "http://www.spiderkellys.com/", link: "spiderkellys.com",
       win: [{ d: [1,2,3,4,5], s: 16, e: 19 }] },
     { n: "Don Tito", lat: 38.8867020, lng: -77.0964167, walk: 2, addr: "3165 Wilson Blvd",
       when: "3–6 PM per aggregators — closed Mondays, so effectively Tue–Sun",
       deals: "From their own happy-hour page: $2 tacos (chicken, ground beef, carnitas), $2 chips & salsa, $5 soups & apps (street corn, mac n’ cheese bites, taquitos, queso), $7 apps (chorizo sliders, wings), $9 house margaritas, $7 rails, $7 house wines, $2 off drafts.",
       vibe: "Three floors plus a rooftop tequila cantina — peak Clarendon party bar.",
-      note: "The deals are venue-posted but the page prints no start/end time; the 3–6 window is aggregator consensus. Closed Mondays.",
+      note: "The deals are venue-posted but no start/end time is printed anywhere — site, Instagram, or highlights; the 3–6 window is aggregator consensus. Closed Mondays.",
       v: false, url: "https://dontitova.com/happy-hour", link: "dontitova.com",
       win: [{ d: [0,2,3,4,5,6], s: 15, e: 18 }] },
     { n: "Mister Days", lat: 38.8864071, lng: -77.0946046, walk: 2, addr: "1101 N Highland St",
       when: "Aggregators say Tue–Fri 4–7 PM — closed Mondays",
-      deals: "Claimed: $4 draft beers, $4 house wines and rails, $4 select apps. Their website is dead (the old domain now redirects elsewhere) — call (703) 986-3335.",
+      deals: "Claimed: $4 draft beers, $4 house wines and rails, $4 select apps. Their website is dead, and their Instagram (@misterdaysva) is all karaoke and watch parties — no happy-hour details anywhere. Call (703) 986-3335.",
       vibe: "The octogenarian-owned Clarendon sports-bar legend, reopened Nov 2024 in the old Pinemoor space.",
       note: "It MOVED — aggregators still list 3100 Clarendon Blvd; the real address is 1101 N Highland St.",
       v: false, url: "tel:+17039863335", link: "(703) 986-3335",
       win: [{ d: [2,3,4,5], s: 16, e: 19 }] },
     { n: "Big Tony's Pizza & Dive Bar", lat: 38.8864256, lng: -77.0952568, walk: 1, addr: "3100 Clarendon Blvd #5",
-      when: "Happy hour advertised — current standing lineup not posted",
-      deals: "Their specials page is headlined “Daily Deals & Happy Hour Specials” but currently shows only one-off events (Patrón cocktail hour Aug 21, Don Julio HH Aug 28). The old posted lineup (Mon–Fri 4–8: $6 house wines, $7 rails, $7 pint+slice, $10 smashburger) has been deleted — call (703) 570-2700.",
+      when: "Mon–Fri 4–8 PM",
+      deals: "From their “Happy Hour 2026” flyer: $7 rails (Skyy, Cazadores, Wild Turkey, gin, Bacardi), $8 spritzes (Aperol, limoncello, Campari), $6 wines & prosecco, $2 off drafts, $7 pint + slice, $8 mozz sticks or wings, $5 pinwheels or garlic knots, $10 smash burgers.",
       vibe: "Retro ’80s/’90s dive with NY-style pizza, open till 2–3 AM, hookah after 6.",
-      v: false, url: "https://bigtonyspizzabar.com/specials", link: "bigtonyspizzabar.com",
-      win: [] },
+      note: "Verified from the 2026 flyer in their own Instagram highlights (@bigtonypizza_divebar) after their site deleted the lineup. Thursdays: trivia 7–9 plus a pitcher-and-pie for $30.",
+      v: true, url: "https://bigtonyspizzabar.com/specials", link: "bigtonyspizzabar.com",
+      win: [{ d: [1,2,3,4,5], s: 16, e: 20 }] },
     { n: "The Renegade", lat: 38.8863300, lng: -77.0953500, walk: 2, addr: "3100 Clarendon Blvd",
-      when: "Aggregators say 4–7 PM — closed Sun & Mon, so Tue–Fri at best",
-      deals: "Claimed: $4–5 beers, $6 wine, $4 rails. Their own site mentions happy hour only as event marketing, with no details — call (703) 468-4652.",
+      when: "Mon–Fri 4–7 PM (per their own Instagram bio)",
+      deals: "Prices aren’t posted anywhere — aggregators claim $4–5 beers, $6 wine, $4 rails. Call (703) 468-4652.",
       vibe: "Rock-and-roll bar and live-music venue in the former Pamplona space.",
-      v: false, url: "https://renegadeva.com/", link: "renegadeva.com",
-      win: [{ d: [2,3,4,5], s: 16, e: 19 }] },
+      note: "Window verified from the venue’s Instagram bio (@therenegadeva). Their posted hours say closed Sun–Mon, yet the bio says happy hour Mon–Fri — the Monday conflict is unresolved.",
+      v: true, url: "https://renegadeva.com/", link: "renegadeva.com",
+      win: [{ d: [1,2,3,4,5], s: 16, e: 19 }] },
     { n: "Bar Bao", lat: 38.8865200, lng: -77.0951500, walk: 1, addr: "3100 Clarendon Blvd",
-      when: "Aggregators say Mon–Fri 4–7 PM — not posted by the venue",
-      deals: "Claimed (stale listing): $5 rail drinks, $5 drafts, $5 wines by the glass, $5 house sake. Nothing on their own site — call 703-600-0500.",
+      when: "4–7 PM per their own Facebook — days & prices unconfirmed",
+      deals: "Claimed (stale listing): $5 rail drinks, $5 drafts, $5 wines by the glass, $5 house sake. Their Facebook promotes a 4–7 happy hour (undated); their Instagram’s happy-hour highlight is 7+ years old — call 703-600-0500.",
       vibe: "Moody Asian-fusion bao-and-cocktails lounge.",
       v: false, url: "https://barbao-va.com/", link: "barbao-va.com",
       win: [{ d: [1,2,3,4,5], s: 16, e: 19 }] },
@@ -198,11 +209,12 @@ window.DATA = {
       v: true, url: "https://solsetbar.com/menu/", link: "solsetbar.com",
       win: [{ d: [1,2,3,4], s: 16, e: 18 }] },
     { n: "Nettie's Tavern", lat: 38.8885986, lng: -77.0929038, walk: 4, addr: "2854 Wilson Blvd",
-      when: "Advertised on their site — press says daily 3–6 PM",
-      deals: "Per Arlington Magazine (Aug 2025): $5 beer, $5 wine, $5 whiskey, $5 WV pepperoni rolls; plus $5 burgers Wed 11–2, $3 mug night Thu 6–9. Their own menus don’t post the happy hour — call (571) 576-6260.",
+      when: "Mon–Fri 3–6 PM",
+      deals: "BOGO appetizers, $5 domestic drafts, $8 spritzes, $7 Tito’s cocktails. Weekly: Mon 50¢ wings 6–9, Tue trivia + $7 Tito’s 7–9, Wed $5 burger & fries 11–2 + half-price wine 6–9, Thu $3 domestic mugs 6–9, Fri $18 pizza + 4 ponies, Sat–Sun $2 bellinis 11–4.",
       vibe: "Italian-Appalachian scratch tavern in the old Whitlow’s space, opened Aug 2025.",
-      v: false, url: "https://nettiestavern.com", link: "nettiestavern.com",
-      win: [{ d: [0,1,2,3,4,5,6], s: 15, e: 18 }] },
+      note: "The relaunched lineup, verified from their own Instagram (@nettiestavern, posted May 18, 2026) — it supersedes the press-reported “daily 3–6, everything $5” version.",
+      v: true, url: "https://nettiestavern.com", link: "nettiestavern.com",
+      win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
     { n: "BOE", lat: 38.8887100, lng: -77.0928200, walk: 4, addr: "2854 Wilson Blvd, Suite B",
       when: "Tue–Fri 5–9 PM · main floor + rooftop tiki bar when open",
       deals: "$3 domestic beers (PBR, Coors Light, Miller Lite…), $5 rails, $5 select cocktails & shots, $5 wine. $7 food: hot-honey butter chicken bites, steak or chicken egg rolls, loaded tots, quesadillas. $3 mechanical-bull rides.",
@@ -243,11 +255,11 @@ window.DATA = {
       v: true, url: "https://www.thebrassrabbitpub.com/menus", link: "thebrassrabbitpub.com",
       win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
     { n: "Fire Works Pizza", lat: 38.8898790, lng: -77.0873160, walk: 12, addr: "2350 Clarendon Blvd",
-      when: "Old listings say Mon–Fri 3–6:30 PM + Sun 11–8 — may have been dropped",
-      deals: "Claimed (stale, 1yr+): $3 select beers, $4 sangria, $5 featured wines, $2 pork sliders, $3–6 small plates. Their own Arlington pages post no happy hour today, and the restaurant sold in Oct 2025 with a rename planned — call (703) 527-8700 before counting on it.",
+      when: "Probably dropped — old listings said Mon–Fri 3–6:30 PM + Sun 11–8",
+      deals: "Claimed (stale, 1yr+): $3 select beers, $4 sangria, $5 featured wines, $2 pork sliders, $3–6 small plates. Nothing current on their site or Instagram (the last specials highlight is ~3 years old), and the restaurant sold in Oct 2025 with a rename planned — call (703) 527-8700 before counting on it.",
       vibe: "Wood-fired pizza with a serious craft-beer list and a Clarendon Blvd patio.",
       v: false, url: "https://www.fireworkspizza.com/arlington", link: "fireworkspizza.com",
-      win: [{ d: [1,2,3,4,5], s: 15, e: 18.5 }, { d: [0], s: 11, e: 20 }] },
+      win: [] },
     { n: "Courthaus Social", lat: 38.8899819, lng: -77.0866761, walk: 13, addr: "2300 Clarendon Blvd",
       when: "Mon–Fri 3–6 PM",
       deals: "The window is on their own site; prices aren’t. Aggregators claim $2 off all draft beer, Haus cocktails and wine — confirm on arrival (703-243-4900).",
@@ -256,7 +268,7 @@ window.DATA = {
       win: [{ d: [1,2,3,4,5], s: 15, e: 18 }] },
     { n: "Ragtime", lat: 38.8893720, lng: -77.0834740, walk: 18, addr: "1345 N Court House Rd",
       when: "Aggregators say Mon–Fri 11 AM–7 PM — not confirmable on their site",
-      deals: "Claimed: $5 Miller Lite, $6 micro of the month, $6 house spirits, $7 house wines & sangria, $10 house mules, plus daily food specials. Their own specials page won’t render its content — call (703) 243-4003.",
+      deals: "Claimed: $5 Miller Lite, $6 micro of the month, $6 house spirits, $7 house wines & sangria, $10 house mules, plus daily food specials. Their own specials page won’t render its content, and their Instagram is all event posts — call (703) 243-4003.",
       vibe: "New-Orleans-tinged neighborhood pub — one of Arlington’s only covered patios, 17 TVs, weekend Bourbon Street brunch.",
       v: false, url: "https://www.ragtimerestaurant.com/specials", link: "ragtimerestaurant.com",
       win: [{ d: [1,2,3,4,5], s: 11, e: 19 }] },
